@@ -38,7 +38,7 @@ const jobSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  jobNiche: {
+  jobSkill: {
     type: String,
     required: true,
   },

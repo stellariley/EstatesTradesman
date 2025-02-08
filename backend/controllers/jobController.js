@@ -15,7 +15,7 @@ export const postJob = catchAsyncErrors(async (req, res, next) => {
       qualifications,
       budget,
       hiringMultipleTradesmen,
-      jobNiche,
+      jobSkill,
       contactInfo,
     } = req.body;
 
@@ -29,7 +29,7 @@ export const postJob = catchAsyncErrors(async (req, res, next) => {
       !responsibilities ||
       !qualifications ||
       !budget ||
-      !jobNiche ||
+      !jobSkill ||
       !contactInfo?.email ||
       !contactInfo?.phone
     ) {
@@ -49,7 +49,7 @@ export const postJob = catchAsyncErrors(async (req, res, next) => {
       qualifications,
       budget,
       hiringMultipleTradesmen,
-      jobNiche,
+      jobSkill,
       contactInfo,
       postedBy,
     });
@@ -66,14 +66,14 @@ export const postJob = catchAsyncErrors(async (req, res, next) => {
 
 // ✅ Get All Jobs with Filters
 export const getAllJobs = catchAsyncErrors(async (req, res, next) => {
-  const { city, niche, searchKeyword } = req.query;
+  const { city, skill, searchKeyword } = req.query;
   const query = {};
 
   if (city) {
     query.location = city;
   }
-  if (niche) {
-    query.jobNiche = niche;
+  if (skill) {
+    query.jobSkill = skill;
   }
   if (searchKeyword) {
     query.$or = [

@@ -13,18 +13,18 @@ export const register = catchAsyncErrors(async (req, res, next) => {
       address,
       password,
       role,
-      firstNiche,
-      secondNiche,
-      thirdNiche,
+      firstSkill,
+      secondSkill,
+      thirdSkill,
       coverLetter,
     } = req.body;
 
     if (!name || !email || !phone || !address || !password || !role) {
       return next(new ErrorHandler("All fileds are required.", 400));
     }
-    if (role === "Tradesman" && (!firstNiche || !secondNiche || !thirdNiche)) {
+    if (role === "Tradesman" && (!firstSkill || !secondSkill || !thirdSkill)) {
       return next(
-        new ErrorHandler("Please provide your preferred job niches.", 400)
+        new ErrorHandler("Please provide your preferred job skills.", 400)
       );
     }
     const existingUser = await User.findOne({ email });
@@ -38,10 +38,10 @@ export const register = catchAsyncErrors(async (req, res, next) => {
       address,
       password,
       role,
-      niches: {
-        firstNiche,
-        secondNiche,
-        thirdNiche,
+      skills: {
+        firstSkill,
+        secondSkill,
+        thirdSkill,
       },
       coverLetter,
     };
@@ -125,20 +125,20 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
     phone: req.body.phone,
     address: req.body.address,
     coverLetter: req.body.coverLetter,
-    niches: {
-      firstNiche: req.body.firstNiche,
-      secondNiche: req.body.secondNiche,
-      thirdNiche: req.body.thirdNiche,
+    skills: {
+      firstSkill: req.body.firstSkill,
+      secondSkill: req.body.secondSkill,
+      thirdSkill: req.body.thirdSkill,
     },
   };
-  const { firstNiche, secondNiche, thirdNiche } = newUserData.niches;
+  const { firstSkill, secondSkill, thirdSkill } = newUserData.skills;
 
   if (
     req.user.role === "Tradesman" &&
-    (!firstNiche || !secondNiche || !thirdNiche)
+    (!firstSkill || !secondSkill || !thirdSkill)
   ) {
     return next(
-      new ErrorHandler("Please provide your all preferred job niches.", 400)
+      new ErrorHandler("Please provide your all preferred job skills.", 400)
     );
   }
   if (req.files) {

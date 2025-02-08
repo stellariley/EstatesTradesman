@@ -23,10 +23,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  niches: {
-    firstNiche: String,
-    secondNiche: String,
-    thirdNiche: String,
+  skills: {
+    firstSkill: String,
+    secondSkill: String,
+    thirdSkill: String,
   },
   password: {
     type: String,

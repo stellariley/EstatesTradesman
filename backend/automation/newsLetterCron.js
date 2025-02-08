@@ -11,14 +11,14 @@ export const newsLetterCron = () => {
       try {
         const filteredUsers = await User.find({
           $or: [
-            { "niches.firstNiche": job.jobNiche },
-            { "niches.secondNiche": job.jobNiche },
-            { "niches.thirdNiche": job.jobNiche },
+            { "skills.firstSkill": job.jobSkill },
+            { "skills.secondSkill": job.jobSkill },
+            { "skills.thirdSkill": job.jobSkill },
           ],
         });
 
         for (const user of filteredUsers) {
-          const subject = `New Job Opportunity: ${job.title} in ${job.jobNiche}`;
+          const subject = `New Job Opportunity: ${job.title} in ${job.jobSkill}`;
           const message = `Hi ${user.name},\n\nGood news! A new job that matches your skills has just been posted. Here are the details:\n\n- **Position:** ${job.title}\n- **Business Owner:** ${job.businessOwnerName}\n- **Location:** ${job.location}\n- **Budget:** ${job.budget}\n\nThis is a great opportunity, so don’t wait! Job openings like these are quickly filled.\n\nBest of luck,\nEstatesTradesman team\n\nWe're excited to help you find your next job!`;
 
           sendEmail({
