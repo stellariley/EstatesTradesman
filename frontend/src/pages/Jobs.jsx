@@ -82,25 +82,39 @@ const Jobs = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <section className="jobs">
-          <div className="search-tab-wrapper">
-            <input
-              type="text"
-              value={searchKeyword}
-              onChange={(e) => setSearchKeyword(e.target.value)}
-              onKeyDown={handleKeyPress}
-              placeholder="Search for jobs..."
-            />
-            <button onClick={handleSearch}>Find Job</button>
-            <FaSearch />
+        <section className="p-6">
+          <div className="flex flex-col lg:flex-row gap-4 mb-6">
+            <div className="flex items-center space-x-2">
+              <input
+                type="text"
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)}
+                onKeyDown={handleKeyPress}
+                placeholder="Search for jobs..."
+                className="px-4 py-2 border border-gray-300 rounded-md"
+              />
+              <button
+                onClick={handleSearch}
+                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              >
+                Find Job
+              </button>
+              <FaSearch className="text-gray-600" />
+            </div>
           </div>
 
-          <div className="wrapper">
-            <div className="filter-bar">
+          <div className="flex flex-col lg:flex-row gap-6 mb-6">
+            <div className="w-full lg:w-1/4 bg-white p-4 rounded-lg shadow-md">
+              <h2 className="text-xl font-semibold mb-4">Filter Jobs</h2>
+
               {/* State Selection */}
-              <div className="filter-group">
-                <h2>Select State</h2>
-                <select value={state} onChange={(e) => handleStateChange(e.target.value)}>
+              <div className="mb-4">
+                <h3 className="font-medium">Select State</h3>
+                <select
+                  value={state}
+                  onChange={(e) => handleStateChange(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                >
                   <option value="">All States</option>
                   {Object.keys(locations).map((stateName) => (
                     <option key={stateName} value={stateName}>
@@ -111,12 +125,13 @@ const Jobs = () => {
               </div>
 
               {/* City Selection */}
-              <div className="filter-group">
-                <h2>Select City</h2>
+              <div className="mb-4">
+                <h3 className="font-medium">Select City</h3>
                 <select
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  disabled={!state} // Disable if no state is selected
+                  disabled={!state}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 >
                   <option value="">All Cities</option>
                   {state &&
@@ -129,9 +144,13 @@ const Jobs = () => {
               </div>
 
               {/* Skill Selection */}
-              <div className="filter-group">
-                <h2>Select Skill</h2>
-                <select value={skill} onChange={(e) => setSkill(e.target.value)}>
+              <div>
+                <h3 className="font-medium">Select Skill</h3>
+                <select
+                  value={skill}
+                  onChange={(e) => setSkill(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                >
                   <option value="">All Skills</option>
                   {skillsArray.map((skillName, index) => (
                     <option key={index} value={skillName}>
@@ -143,36 +162,53 @@ const Jobs = () => {
             </div>
 
             {/* Job Listings */}
-            <div className="container">
-              <div className="jobs_container">
+            <div className="w-full lg:w-3/4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {jobs && jobs.length > 0 ? (
                   jobs.map((element) => {
                     return (
-                      <div className="card" key={element._id}>
+                      <div
+                        className="bg-white p-6 rounded-lg shadow-lg"
+                        key={element._id}
+                      >
                         {element.hiringMultipleCandidates === "Yes" ? (
-                          <p className="hiring-multiple">Hiring Multiple Candidates</p>
+                          <p className="text-green-600 font-semibold mb-2">
+                            Hiring Multiple Candidates
+                          </p>
                         ) : (
-                          <p className="hiring">Hiring</p>
+                          <p className="text-red-600 font-semibold mb-2">
+                            Hiring
+                          </p>
                         )}
-                        <p className="title">{element.title}</p>
-                        <p className="company">{element.companyName}</p>
-                        <p className="location">{element.location}</p>
-                        <p className="budget">
-                          <span>Budget:</span> ${element.budget}
+                        <p className="text-lg font-semibold">{element.title}</p>
+                        <p className="text-sm text-gray-500 mb-2">
+                          {element.companyName}
                         </p>
-                        <p className="posted">
-                          <span>Posted On:</span> {element.jobPostedOn.substring(0, 10)}
+                        <p className="text-sm text-gray-600 mb-2">
+                          {element.location}
                         </p>
-                        <div className="btn-wrapper">
-                          <Link className="btn" to={`/post/application/${element._id}`}>
-                            Apply Now
-                          </Link>
-                        </div>
+                        <p className="font-medium text-gray-700 mb-2">
+                          <span className="font-semibold">Budget:</span> ${element.budget}
+                        </p>
+                        <p className="text-sm text-gray-500 mb-4">
+                          <span className="font-semibold">Posted On:</span>{" "}
+                          {element.jobPostedOn.substring(0, 10)}
+                        </p>
+                        <Link
+                          className="block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                          to={`/post/application/${element._id}`}
+                        >
+                          Apply Now
+                        </Link>
                       </div>
                     );
                   })
                 ) : (
-                  <img src="./notfound.png" alt="job-not-found" style={{ width: "100%" }} />
+                  <img
+                    src="./notfound.png"
+                    alt="job-not-found"
+                    className="w-full"
+                  />
                 )}
               </div>
             </div>

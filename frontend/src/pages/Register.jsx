@@ -86,188 +86,191 @@ const Register = () => {
   }, [dispatch, error, loading, isAuthenticated, message]);
 
   return (
-    <>
-      <section className="authPage">
-        <div className="container">
-          <div className="header">
-            <h3>Create a new account</h3>
-          </div>
-          <form onSubmit={handleRegsiter}>
-            <div className="wrapper">
-              <div className="inputTag">
-                <label>Register As</label>
-                <div>
-                  <select
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                  >
-                    <option value="">Select Role</option>
-                    <option value="Business Owner">Register as an Business Owner</option>
-                    <option value="Tradesman">Register as a Tradesman</option>
-                  </select>
-                  <FaRegUser />
-                </div>
-              </div>
-              <div className="inputTag">
-                <label>Name</label>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <FaPencilAlt />
-                </div>
-              </div>
-            </div>
-            <div className="wrapper">
-              <div className="inputTag">
-                <label>Email Address</label>
-                <div>
-                  <input
-                    type="email"
-                    placeholder="youremail@gmail.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <MdOutlineMailOutline />
-                </div>
-              </div>
-              <div className="inputTag">
-                <label>Phone Number</label>
-                <div>
-                  <input
-                    type="number"
-                    placeholder="111-222-333"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                  <FaPhoneFlip />
-                </div>
-              </div>
-            </div>
-            <div className="wrapper">
-              <div className="inputTag">
-                <label>Address</label>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Your Address"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                  />
-                  <FaAddressBook />
-                </div>
-              </div>
-              <div className="inputTag">
-                <label>Password</label>
-                <div>
-                  <input
-                    type="password"
-                    placeholder="Your Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <RiLock2Fill />
-                </div>
-              </div>
-            </div>
-            {role === "Tradesman" && (
-              <>
-                <div className="wrapper">
-                  <div className="inputTag">
-                    <label>Your First Skill</label>
-                    <div>
-                      <select
-                        value={firstSkill}
-                        onChange={(e) => setFirstSkill(e.target.value)}
-                      >
-                        <option value="">Your Skill</option>
-                        {skillsArray.map((skill, index) => {
-                          return (
-                            <option key={index} value={skill}>
-                              {skill}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      <MdCategory />
-                    </div>
-                  </div>
-                  <div className="inputTag">
-                    <label>Your Second Skill</label>
-                    <div>
-                      <select
-                        value={secondSkill}
-                        onChange={(e) => setSecondSkill(e.target.value)}
-                      >
-                        <option value="">Your Skill</option>
-                        {skillsArray.map((skill, index) => {
-                          return (
-                            <option key={index} value={skill}>
-                              {skill}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      <MdCategory />
-                    </div>
-                  </div>
-                  <div className="inputTag">
-                    <label>Your Third Skill</label>
-                    <div>
-                      <select
-                        value={thirdSkill}
-                        onChange={(e) => setThirdSkill(e.target.value)}
-                      >
-                        <option value="">Your Skill</option>
-                        {skillsArray.map((skill, index) => {
-                          return (
-                            <option key={index} value={skill}>
-                              {skill}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      <MdCategory />
-                    </div>
-                  </div>
-                </div>
-                <div className="wrapper">
-                  <div className="inputTag">
-                    <label>Coverletter</label>
-                    <div>
-                      <textarea
-                        value={coverLetter}
-                        onChange={(e) => setCoverLetter(e.target.value)}
-                        rows={10}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="wrapper">
-                  <div className="inputTag">
-                    <label>Resume</label>
-                    <div>
-                      <input
-                        type="file"
-                        onChange={resumeHandler}
-                        style={{ border: "none" }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
-            <button type="submit" disabled={loading}>
-              Register
-            </button>
-            <Link to={"/login"}>Login Now</Link>
-          </form>
+    <section className="authPage bg-gray-100 min-h-screen flex items-center justify-center py-10">
+      <div className="container bg-white p-8 rounded-lg shadow-md w-full sm:w-96">
+        <div className="header mb-6">
+          <h3 className="text-2xl font-semibold text-center">Create a new account</h3>
         </div>
-      </section>
-    </>
+        <form onSubmit={handleRegsiter}>
+          {/* Role Selection */}
+          <div className="mb-4">
+            <label className="block text-sm font-medium">Register As</label>
+            <div className="flex items-center mt-2">
+              <select
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              >
+                <option value="">Select Role</option>
+                <option value="Business Owner">Register as Business Owner</option>
+                <option value="Tradesman">Register as Tradesman</option>
+              </select>
+              <FaRegUser className="ml-2" />
+            </div>
+          </div>
+
+          {/* Name and Email */}
+          <div className="mb-4">
+            <label className="block text-sm font-medium">Name</label>
+            <div className="flex items-center mt-2">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+              <FaPencilAlt className="ml-2" />
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium">Email Address</label>
+            <div className="flex items-center mt-2">
+              <input
+                type="email"
+                placeholder="youremail@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+              <MdOutlineMailOutline className="ml-2" />
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium">Phone Number</label>
+            <div className="flex items-center mt-2">
+              <input
+                type="number"
+                placeholder="111-222-333"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+              <FaPhoneFlip className="ml-2" />
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium">Address</label>
+            <div className="flex items-center mt-2">
+              <input
+                type="text"
+                placeholder="Your Address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+              <FaAddressBook className="ml-2" />
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium">Password</label>
+            <div className="flex items-center mt-2">
+              <input
+                type="password"
+                placeholder="Your Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full py-2 px-3 border border-gray-300 rounded-md"
+              />
+              <RiLock2Fill className="ml-2" />
+            </div>
+          </div>
+
+          {/* Tradesman Fields */}
+          {role === "Tradesman" && (
+            <>
+              <div className="mb-4">
+                <label className="block text-sm font-medium">Your First Skill</label>
+                <select
+                  value={firstSkill}
+                  onChange={(e) => setFirstSkill(e.target.value)}
+                  className="w-full py-2 px-3 border border-gray-300 rounded-md"
+                >
+                  <option value="">Select Skill</option>
+                  {skillsArray.map((skill, index) => (
+                    <option key={index} value={skill}>
+                      {skill}
+                    </option>
+                  ))}
+                </select>
+                <MdCategory className="absolute right-2 top-2" />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium">Your Second Skill</label>
+                <select
+                  value={secondSkill}
+                  onChange={(e) => setSecondSkill(e.target.value)}
+                  className="w-full py-2 px-3 border border-gray-300 rounded-md"
+                >
+                  <option value="">Select Skill</option>
+                  {skillsArray.map((skill, index) => (
+                    <option key={index} value={skill}>
+                      {skill}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium">Your Third Skill</label>
+                <select
+                  value={thirdSkill}
+                  onChange={(e) => setThirdSkill(e.target.value)}
+                  className="w-full py-2 px-3 border border-gray-300 rounded-md"
+                >
+                  <option value="">Select Skill</option>
+                  {skillsArray.map((skill, index) => (
+                    <option key={index} value={skill}>
+                      {skill}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium">Cover Letter</label>
+                <textarea
+                  value={coverLetter}
+                  onChange={(e) => setCoverLetter(e.target.value)}
+                  rows={5}
+                  className="w-full p-3 border border-gray-300 rounded-md"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-medium">Resume</label>
+                <input
+                  type="file"
+                  onChange={resumeHandler}
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                />
+              </div>
+            </>
+          )}
+
+          <div className="mb-6">
+            <button
+              type="submit"
+              className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
+              {loading ? "Registering..." : "Register"}
+            </button>
+          </div>
+
+          <div className="text-center text-sm">
+            Already have an account?{" "}
+            <Link to="/login" className="text-blue-600 hover:underline">
+              Login here
+            </Link>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 };
 
