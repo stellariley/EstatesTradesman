@@ -8,7 +8,7 @@ import {
   deleteApplication,
   fetchTradesmanApplications,
 } from "../store/slices/applicationSlice";
-import Spinner from "./Spinner";
+import Spinner from "./Spinner.jsx";
 
 const MyApplications = () => {
   const { user, isAuthenticated } = useSelector((state) => state.user);

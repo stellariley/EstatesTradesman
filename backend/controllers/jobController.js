@@ -64,13 +64,13 @@ export const postJob = catchAsyncErrors(async (req, res, next) => {
   }
 });
 
-// ✅ Get All Jobs with Filters
+// ✅ Get All Jobs with Filters and Pagination
 export const getAllJobs = catchAsyncErrors(async (req, res, next) => {
-  const { city, skill, searchKeyword } = req.query;
+  const { location, skill, searchKeyword, page = 1, limit = 10 } = req.query;
   const query = {};
 
-  if (city) {
-    query.location = city;
+  if (location) {
+    query.location = location;
   }
   if (skill) {
     query.jobSkill = skill;
@@ -83,14 +83,18 @@ export const getAllJobs = catchAsyncErrors(async (req, res, next) => {
     ];
   }
 
-  const jobs = await Job.find(query);
+  // Pagination
+  const skip = (page - 1) * limit;
+  const jobs = await Job.find(query).skip(skip).limit(limit);
+  const totalJobsCount = await Job.countDocuments(query);
 
   res.status(200).json({
     success: true,
     jobs,
-    count: jobs.length,
+    totalCount: totalJobsCount,
   });
 });
+
 
 // ✅ Get Jobs Posted by Logged-in User
 export const getMyJobs = catchAsyncErrors(async (req, res, next) => {

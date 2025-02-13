@@ -83,50 +83,50 @@ const PostApplication = () => {
   };
 
   return (
-    <article className="p-8 max-w-4xl mx-auto">
+    <article className="p-8 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
       <form onSubmit={handlePostApplication} className="space-y-6">
-        <h3 className="text-2xl font-semibold text-center">Application Form</h3>
+        <h3 className="text-2xl font-semibold text-center text-gray-800">Application Form</h3>
         <div>
-          <label className="block text-sm font-medium">Job Title</label>
+          <label className="block text-sm font-medium text-gray-700">Job Title</label>
           <input
             type="text"
-            className="w-full p-2 border border-gray-300 rounded mt-2"
+            className="w-full p-3 border border-gray-300 rounded mt-2 bg-gray-100"
             placeholder={singleJob.title}
             disabled
           />
         </div>
         <div>
-          <label className="block text-sm font-medium">Your Name</label>
+          <label className="block text-sm font-medium text-gray-700">Your Name</label>
           <input
             type="text"
-            className="w-full p-2 border border-gray-300 rounded mt-2"
+            className="w-full p-3 border border-gray-300 rounded mt-2"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div>
-          <label className="block text-sm font-medium">Your Email</label>
+          <label className="block text-sm font-medium text-gray-700">Your Email</label>
           <input
             type="email"
-            className="w-full p-2 border border-gray-300 rounded mt-2"
+            className="w-full p-3 border border-gray-300 rounded mt-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
-          <label className="block text-sm font-medium">Phone Number</label>
+          <label className="block text-sm font-medium text-gray-700">Phone Number</label>
           <input
             type="number"
-            className="w-full p-2 border border-gray-300 rounded mt-2"
+            className="w-full p-3 border border-gray-300 rounded mt-2"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
         <div>
-          <label className="block text-sm font-medium">Address</label>
+          <label className="block text-sm font-medium text-gray-700">Address</label>
           <input
             type="text"
-            className="w-full p-2 border border-gray-300 rounded mt-2"
+            className="w-full p-3 border border-gray-300 rounded mt-2"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
@@ -134,19 +134,19 @@ const PostApplication = () => {
         {user && user.role === "Tradesman" && (
           <>
             <div>
-              <label className="block text-sm font-medium">Coverletter</label>
+              <label className="block text-sm font-medium text-gray-700">Cover Letter</label>
               <textarea
-                className="w-full p-2 border border-gray-300 rounded mt-2"
+                className="w-full p-3 border border-gray-300 rounded mt-2"
                 value={coverLetter}
                 onChange={(e) => setCoverLetter(e.target.value)}
                 rows={6}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium">Resume</label>
+              <label className="block text-sm font-medium text-gray-700">Resume</label>
               <input
                 type="file"
-                className="w-full p-2 border border-gray-300 rounded mt-2"
+                className="w-full p-3 border border-gray-300 rounded mt-2"
                 onChange={resumeHandler}
               />
             </div>
@@ -156,10 +156,10 @@ const PostApplication = () => {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none disabled:bg-gray-400"
               disabled={loading}
             >
-              Apply
+              {loading ? "Applying..." : "Apply"}
             </button>
           </div>
         )}
@@ -167,7 +167,7 @@ const PostApplication = () => {
 
       <div className="mt-12 space-y-6">
         <header className="text-center">
-          <h3 className="text-2xl font-semibold">{singleJob.title}</h3>
+          <h3 className="text-2xl font-semibold text-gray-800">{singleJob.title}</h3>
           {singleJob.personalWebsite && (
             <Link
               to={singleJob.personalWebsite.url}
@@ -178,28 +178,28 @@ const PostApplication = () => {
             </Link>
           )}
           <p className="text-gray-600">{singleJob.location}</p>
-          <p className="text-xl font-semibold">Rs. {singleJob.budget} a month</p>
+          <p className="text-xl font-semibold text-gray-800">${singleJob.budget}</p>
         </header>
-        <section className="mt-6">
+        <section className="mt-6 space-y-4">
           <div className="flex justify-between">
             <div className="flex items-center space-x-2">
               <IoMdCash />
               <div>
                 <span className="font-semibold">Pay</span>
-                <span>{singleJob.budget} a month</span>
+                <span> ${singleJob.budget}</span>
               </div>
             </div>
             <div className="flex items-center space-x-2">
               <FaToolbox />
               <div>
-                <span className="font-semibold">Job Type</span>
-                <span>{singleJob.jobType}</span>
+                <span className="font-semibold">Job Type: </span>
+                <span> {singleJob.jobType}</span>
               </div>
             </div>
           </div>
 
           <div className="mt-4">
-            <h4 className="text-lg font-semibold">Location</h4>
+            <h4 className="text-lg font-semibold text-gray-700">Location</h4>
             <div className="flex items-center space-x-2">
               <FaLocationDot />
               <span>{singleJob.location}</span>
@@ -207,12 +207,12 @@ const PostApplication = () => {
           </div>
 
           <div className="mt-4">
-            <h4 className="text-lg font-semibold">Full Job Description</h4>
+            <h4 className="text-lg font-semibold text-gray-700">Full Job Description</h4>
             <p>{singleJob.introduction}</p>
             {singleJob.qualifications && (
               <div className="mt-4">
                 <h5 className="text-md font-semibold">Qualifications</h5>
-                <ul className="list-inside">
+                <ul className="list-inside list-disc pl-5">
                   {qualifications.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
@@ -222,7 +222,7 @@ const PostApplication = () => {
             {singleJob.responsibilities && (
               <div className="mt-4">
                 <h5 className="text-md font-semibold">Responsibilities</h5>
-                <ul className="list-inside">
+                <ul className="list-inside list-disc pl-5">
                   {responsibilities.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
@@ -232,7 +232,7 @@ const PostApplication = () => {
             {singleJob.offers && (
               <div className="mt-4">
                 <h5 className="text-md font-semibold">Offering</h5>
-                <ul className="list-inside">
+                <ul className="list-inside list-disc pl-5">
                   {offering.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
@@ -242,8 +242,8 @@ const PostApplication = () => {
           </div>
         </section>
 
-        <footer className="mt-6">
-          <h3 className="text-xl font-semibold">Job Skill</h3>
+        <footer className="mt-6 border-t pt-4">
+          <h3 className="text-xl font-semibold text-gray-800">Job Skill</h3>
           <p>{singleJob.jobSkill}</p>
         </footer>
       </div>

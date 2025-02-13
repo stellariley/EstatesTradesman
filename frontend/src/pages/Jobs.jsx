@@ -15,15 +15,24 @@ const Jobs = () => {
   const { jobs, loading, error } = useSelector((state) => state.jobs);
   const dispatch = useDispatch();
 
+  // Fetch jobs based on filters or initial load
   useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearAllJobErrors());
     }
-    if (state || city || skill || searchKeyword) {
-      dispatch(fetchJobs(state, city, skill, searchKeyword));
-    }
-  }, [dispatch, error, state, city, skill, searchKeyword]);
+
+    const fetchData = async () => {
+      try {
+        // Only fetch jobs when filters are applied or reset
+        await dispatch(fetchJobs({ state, city, skill, searchKeyword }));
+      } catch (err) {
+        toast.error("Error fetching jobs");
+      }
+    };
+
+    fetchData();
+  }, [dispatch, state, city, skill, searchKeyword, error]); // Trigger re-fetch when filters change
 
   const handleStateChange = (selectedState) => {
     setState(selectedState);
@@ -31,7 +40,7 @@ const Jobs = () => {
   };
 
   const handleSearch = () => {
-    dispatch(fetchJobs(state, city, skill, searchKeyword));
+    dispatch(fetchJobs({ state, city, skill, searchKeyword }));
   };
 
   const handleKeyPress = (e) => {
@@ -40,7 +49,7 @@ const Jobs = () => {
     }
   };
 
-  const locations = {
+  const location = {
     "California": ["Los Angeles", "San Diego", "San Francisco", "San Jose"],
     "Texas": ["Houston", "Dallas", "Austin", "San Antonio"],
     "New York": ["New York City", "Buffalo", "Rochester", "Albany"],
@@ -51,10 +60,45 @@ const Jobs = () => {
     "Georgia": ["Atlanta", "Savannah", "Augusta", "Macon"],
     "North Carolina": ["Charlotte", "Raleigh", "Durham", "Greensboro"],
     "Arizona": ["Phoenix", "Tucson", "Mesa", "Chandler"],
+    "Michigan": ["Detroit", "Grand Rapids", "Ann Arbor", "Lansing"],
+    "Pennsylvania": ["Philadelphia", "Pittsburgh", "Allentown", "Erie"],
+    "Virginia": ["Virginia Beach", "Norfolk", "Richmond", "Chesapeake"],
+    "Tennessee": ["Nashville", "Memphis", "Knoxville", "Chattanooga"],
+    "Indiana": ["Indianapolis", "Fort Wayne", "Evansville", "South Bend"],
+    "Missouri": ["St. Louis", "Kansas City", "Springfield", "Columbia"],
+    "Maryland": ["Baltimore", "Columbia", "Silver Spring", "Rockville"],
+    "Wisconsin": ["Milwaukee", "Madison", "Green Bay", "Kenosha"],
+    "Minnesota": ["Minneapolis", "Saint Paul", "Rochester", "Duluth"],
+    "Colorado": ["Denver", "Colorado Springs", "Aurora", "Fort Collins"],
+    "Alabama": ["Birmingham", "Montgomery", "Huntsville", "Mobile"],
+    "South Carolina": ["Charleston", "Columbia", "Greenville", "Spartanburg"],
+    "Louisiana": ["New Orleans", "Baton Rouge", "Shreveport", "Lafayette"],
+    "Kentucky": ["Louisville", "Lexington", "Bowling Green", "Covington"],
+    "Oregon": ["Portland", "Salem", "Eugene", "Gresham"],
+    "Connecticut": ["Hartford", "New Haven", "Stamford", "Bridgeport"],
+    "Iowa": ["Des Moines", "Cedar Rapids", "Davenport", "Sioux City"],
+    "Nevada": ["Las Vegas", "Reno", "Henderson", "Sparks"],
+    "Arkansas": ["Little Rock", "Fort Smith", "Fayetteville", "Springdale"],
+    "Utah": ["Salt Lake City", "Provo", "West Valley City", "Orem"],
+    "Kansas": ["Wichita", "Overland Park", "Kansas City", "Olathe"],
+    "New Mexico": ["Albuquerque", "Santa Fe", "Las Cruces", "Rio Rancho"],
+    "Nebraska": ["Omaha", "Lincoln", "Bellevue", "Grand Island"],
+    "West Virginia": ["Charleston", "Huntington", "Morgantown", "Parkersburg"],
+    "Idaho": ["Boise", "Nampa", "Meridian", "Idaho Falls"],
+    "Hawaii": ["Honolulu", "Hilo", "Kailua", "Kaneohe"],
+    "Maine": ["Portland", "Lewiston", "Bangor", "Auburn"],
+    "New Hampshire": ["Manchester", "Nashua", "Concord", "Derry"],
+    "Montana": ["Billings", "Missoula", "Bozeman", "Great Falls"],
+    "Wyoming": ["Cheyenne", "Casper", "Laramie", "Gillette"],
+    "Alaska": ["Anchorage", "Fairbanks", "Juneau", "Wasilla"],
+    "Delaware": ["Wilmington", "Dover", "Newark", "Middletown"],
+    "Rhode Island": ["Providence", "Warwick", "Cranston", "Pawtucket"],
+    "Vermont": ["Burlington", "Rutland", "Barre", "Montpelier"],
+    "North Dakota": ["Fargo", "Bismarck", "Grand Forks", "Minot"],
+    "South Dakota": ["Sioux Falls", "Rapid City", "Aberdeen", "Brookings"],
   };
 
   const skillsArray = [
-    "All",
     "Carpentry",
     "Plumbing",
     "Electrical Work",
@@ -116,7 +160,7 @@ const Jobs = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 >
                   <option value="">All States</option>
-                  {Object.keys(locations).map((stateName) => (
+                  {Object.keys(location).map((stateName) => (
                     <option key={stateName} value={stateName}>
                       {stateName}
                     </option>
@@ -135,7 +179,7 @@ const Jobs = () => {
                 >
                   <option value="">All Cities</option>
                   {state &&
-                    locations[state].map((cityName) => (
+                    location[state].map((cityName) => (
                       <option key={cityName} value={cityName}>
                         {cityName}
                       </option>
@@ -165,50 +209,46 @@ const Jobs = () => {
             <div className="w-full lg:w-3/4">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {jobs && jobs.length > 0 ? (
-                  jobs.map((element) => {
-                    return (
-                      <div
-                        className="bg-white p-6 rounded-lg shadow-lg"
-                        key={element._id}
+                  jobs.map((element) => (
+                    <div
+                      className="bg-white p-6 rounded-lg shadow-lg"
+                      key={element._id}
+                    >
+                      {element.hiringMultipleCandidates === "Yes" ? (
+                        <p className="text-green-600 font-semibold mb-2">
+                          Hiring Multiple Candidates
+                        </p>
+                      ) : (
+                        <p className="text-red-600 font-semibold mb-2">
+                          Hiring
+                        </p>
+                      )}
+                      <p className="text-lg font-semibold">{element.title}</p>
+                      <p className="text-sm text-gray-500 mb-2">
+                        {element.companyName}
+                      </p>
+                      <p className="text-sm text-gray-600 mb-2">
+                        {element.location}
+                      </p>
+                      <p className="font-medium text-gray-700 mb-2">
+                        <span className="font-semibold">Budget:</span> ${element.budget}
+                      </p>
+                      <p className="text-sm text-gray-500 mb-4">
+                        <span className="font-semibold">Posted On:</span>{" "}
+                        {element.jobPostedOn
+                          ? element.jobPostedOn.substring(0, 10)
+                          : "N/A"}
+                      </p>
+                      <Link
+                        className="block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                        to={`/post/application/${element._id}`}
                       >
-                        {element.hiringMultipleCandidates === "Yes" ? (
-                          <p className="text-green-600 font-semibold mb-2">
-                            Hiring Multiple Candidates
-                          </p>
-                        ) : (
-                          <p className="text-red-600 font-semibold mb-2">
-                            Hiring
-                          </p>
-                        )}
-                        <p className="text-lg font-semibold">{element.title}</p>
-                        <p className="text-sm text-gray-500 mb-2">
-                          {element.companyName}
-                        </p>
-                        <p className="text-sm text-gray-600 mb-2">
-                          {element.location}
-                        </p>
-                        <p className="font-medium text-gray-700 mb-2">
-                          <span className="font-semibold">Budget:</span> ${element.budget}
-                        </p>
-                        <p className="text-sm text-gray-500 mb-4">
-                          <span className="font-semibold">Posted On:</span>{" "}
-                          {element.jobPostedOn.substring(0, 10)}
-                        </p>
-                        <Link
-                          className="block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-                          to={`/post/application/${element._id}`}
-                        >
-                          Apply Now
-                        </Link>
-                      </div>
-                    );
-                  })
+                        Apply Now
+                      </Link>
+                    </div>
+                  ))
                 ) : (
-                  <img
-                    src="./notfound.png"
-                    alt="job-not-found"
-                    className="w-full"
-                  />
+                  <p>No jobs available at the moment.</p>
                 )}
               </div>
             </div>

@@ -10,6 +10,8 @@ const jobSlice = createSlice({
     message: null,
     singleJob: {},
     myJobs: [],
+    totalJobsCount: 0,
+    currentPage: 1,
   },
   reducers: {
     request(state) {
@@ -19,7 +21,8 @@ const jobSlice = createSlice({
     },
     successForAllJobs(state, action) {
       state.loading = false;
-      state.jobs = action.payload;
+      state.jobs = action.payload.jobs;
+      state.totalJobsCount = action.payload.totalCount;
     },
     failure(state, action) {
       state.loading = false;
@@ -45,38 +48,63 @@ const jobSlice = createSlice({
       state.error = null;
     },
     resetJobSlice(state) {
-      state.loading = false;
-      state.error = null;
-      state.message = null;
-      state.myJobs = [];
-      state.singleJob = {};
+      return {
+        jobs: [],
+        loading: false,
+        error: null,
+        message: null,
+        singleJob: {},
+        myJobs: [],
+        totalJobsCount: 0,
+        currentPage: 1,
+      };
+    },
+    setPage(state, action) {
+      state.currentPage = action.payload;
     },
   },
 });
 
-export const fetchJobs = (city, skill, searchKeyword = "") => async (dispatch) => {
+export const fetchJobs = (state, city, skill, searchKeyword = "", page = 1) => async (dispatch) => {
   try {
-    dispatch(jobSlice.actions.request());
+    dispatch(jobSlice.actions.request());  // Indicate that the request is in progress
+
+    // Build query parameters
     let queryParams = new URLSearchParams();
-    
+
     if (searchKeyword) queryParams.append("searchKeyword", searchKeyword);
+    if (state && state !== "All") queryParams.append("state", state);
     if (city && city !== "All") queryParams.append("city", city);
     if (skill && skill !== "All") queryParams.append("skill", skill);
-    
-    const link = `https://job-portal-backend-sifx.onrender.com/api/v1/job/getall?${queryParams.toString()}`;
+    queryParams.append("page", page);
+
+    const link = `http://localhost:4000/api/v1/job/getall?${queryParams.toString()}`;
+
+    console.log("API Request URL:", link);
+
+    // Make API request
     const response = await axios.get(link, { withCredentials: true });
-    
-    dispatch(jobSlice.actions.successForAllJobs(response.data.jobs));
-    dispatch(jobSlice.actions.clearAllErrors());
+
+    // Dispatch the success action with job data and total count
+    dispatch(jobSlice.actions.successForAllJobs({
+      jobs: response.data.jobs,
+      totalCount: response.data.totalCount,
+    }));
+
+    dispatch(jobSlice.actions.clearAllErrors());  // Clear errors if request is successful
+
   } catch (error) {
-    dispatch(jobSlice.actions.failure(error.response?.data?.message || "Failed to fetch jobs"));
+    // Handle errors gracefully
+    const errorMessage = error?.response?.data?.message || "Failed to fetch jobs";
+    console.error("Error fetching jobs:", errorMessage);
+    dispatch(jobSlice.actions.failure(errorMessage));  // Dispatch error action
   }
 };
 
 export const fetchSingleJob = (jobId) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
-    const response = await axios.get(`https://job-portal-backend-sifx.onrender.com/api/v1/job/get/${jobId}`, { withCredentials: true });
+    const response = await axios.get(`http://localhost:4000/api/v1/job/get/${jobId}`, { withCredentials: true });
     dispatch(jobSlice.actions.successForSingleJob(response.data.job));
     dispatch(jobSlice.actions.clearAllErrors());
   } catch (error) {
@@ -84,10 +112,14 @@ export const fetchSingleJob = (jobId) => async (dispatch) => {
   }
 };
 
+export const setPage = (page) => (dispatch) => {
+  dispatch(jobSlice.actions.setPage(page));
+};
+
 export const postJob = (data) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
-    const response = await axios.post(`https://job-portal-backend-sifx.onrender.com/api/v1/job/post`, data, {
+    const response = await axios.post(`http://localhost:4000/api/v1/job/post`, data, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     });
@@ -101,7 +133,7 @@ export const postJob = (data) => async (dispatch) => {
 export const getMyJobs = () => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
-    const response = await axios.get(`https://job-portal-backend-sifx.onrender.com/api/v1/job/getmyjobs`, { withCredentials: true });
+    const response = await axios.get(`http://localhost:4000/api/v1/job/getmyjobs`, { withCredentials: true });
     dispatch(jobSlice.actions.successForMyJobs(response.data.myJobs));
     dispatch(jobSlice.actions.clearAllErrors());
   } catch (error) {
@@ -112,7 +144,7 @@ export const getMyJobs = () => async (dispatch) => {
 export const deleteJob = (id) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
-    const response = await axios.delete(`https://job-portal-backend-sifx.onrender.com/api/v1/job/delete/${id}`, { withCredentials: true });
+    const response = await axios.delete(`http://localhost:4000/api/v1/job/delete/${id}`, { withCredentials: true });
     dispatch(jobSlice.actions.successForDeleteJob(response.data.message));
     dispatch(jobSlice.actions.clearAllErrors());
   } catch (error) {
