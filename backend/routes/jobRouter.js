@@ -10,9 +10,4 @@ router.get("/getmyjobs", isAuthenticated, isAuthorized("Business Owner"), getMyJ
 router.delete("/delete/:id", isAuthenticated, isAuthorized("Business Owner"), deleteJob);
 router.get("/get/:id", getASingleJob)
 
-
-
-
-
-
 export default router;

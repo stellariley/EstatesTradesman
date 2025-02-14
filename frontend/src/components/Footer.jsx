@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-gray-800 text-white py-12">
+      <footer className="bg-slate-700 text-white py-12">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 px-6">
           {/* Logo Section */}
           <div className="flex justify-center md:justify-start mb-6 md:mb-0">
@@ -51,16 +51,16 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-xl mb-4">Follow Us</h4>
             <div className="flex space-x-6">
-              <Link to="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-100 transition">
+              <Link to="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gray-100 transition">
                 <FaSquareXTwitter size={24} />
               </Link>
-              <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-100 transition">
+              <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gray-100 transition">
                 <FaSquareInstagram size={24} />
               </Link>
-              <Link to="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-100 transition">
+              <Link to="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gray-100 transition">
                 <FaYoutube size={24} />
               </Link>
-              <Link to="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-100 transition">
+              <Link to="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-gray-100 transition">
                 <FaLinkedin size={24} />
               </Link>
             </div>

@@ -2,17 +2,24 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-r from-gray-700 to-indigo-800 text-white py-20 px-6 text-center">
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-        Stay Busy. Get Paid. Build Your Reputation.
-      </h1>
-      <h4 className="text-xl md:text-2xl font-medium mb-12 text-gray-300">
-        Connecting Skilled Tradesmen with Business Owners Who Need Quality Work
-      </h4>
-      <div className="bg-white text-gray-900 p-8 rounded-lg shadow-lg max-w-5xl mx-auto">
-        <p className="text-lg md:text-xl leading-relaxed text-gray-700">
-          Discover high-paying trade jobs from verified Business Owners. Whether you're an experienced professional or just starting out in your trade, our platform connects you to work opportunities that match your skillset. Showcase your qualifications, build your reputation, and establish long-term relationships with clients. Join today to get hired, get paid, and advance your career.
-        </p>
+    <section className="bg-gradient-to-b from-gray-100 to-slate-300 text-gray-900 py-20 px-6">
+      <div className="max-w-5xl mx-auto text-center">
+        {/* Main Heading */}
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-gray-900">
+          Stay Busy. Get Paid. Build Your Reputation.
+        </h1>
+
+        {/* Subheading */}
+        <h4 className="text-lg md:text-xl font-medium mb-8 text-gray-700">
+          Connecting Skilled Tradesmen with Business Owners Who Need Quality Work.
+        </h4>
+
+        {/* Highlighted Section */}
+        <div className="bg-gradient-to-r from-gray-900 to-indigo-800 p-8 rounded-xl shadow-xl">
+          <p className="text-lg md:text-xl leading-relaxed text-white">
+            Discover high-paying trade jobs from verified business owners. Whether you're an experienced professional or just starting out, our platform connects you with opportunities that match your skills. Showcase your expertise, build your reputation, and secure well-paying jobs with reliable clients.
+          </p>
+        </div>
       </div>
     </section>
   );
