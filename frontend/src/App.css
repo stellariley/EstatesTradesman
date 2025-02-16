@@ -356,13 +356,13 @@ footer div ul a span {
 .hero h4 {
   font-size: 1.5rem;
   font-weight: 500;
-  color: gray;
+  color: rgb(63, 62, 62);
 }
 .hero .box {
   max-width: 900px;
   text-align: center;
-  background: #4b51f0;
-  color: #111;
+  background: linear-gradient(135deg, #8385be, #0e12eb);
+  color: #000000;
   padding: 50px 75px;
   border-radius: 35px;
   letter-spacing: 1px;
@@ -447,7 +447,7 @@ footer div ul a span {
   align-items: center;
   margin: 0 auto;
   gap: 50px;
-  background: #4b51f0;
+  background: linear-gradient(135deg, #8385be, #0e12eb);
 }
 .howItWorks h3 {
   font-size: 1.75rem;

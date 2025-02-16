@@ -5,39 +5,39 @@ import { BiSolidLike } from "react-icons/bi";
 
 const HowItWorks = () => {
   return (
-    <section className="py-16 bg-white text-center">
-      <h3 className="text-3xl font-semibold text-gray-800 mb-12">How It Works</h3>
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-6">
+    <section className="howItWorks">
+      <h3>How It Works</h3>
+      <div className="container">
         {/* Step 1 */}
-        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border border-gray-300">
-          <div className="text-4xl text-blue-600 mb-4">
+        <div className="card">
+          <div className="icon">
             <LuUserPlus />
           </div>
-          <h4 className="text-xl font-semibold text-gray-900 mb-4">Create Your Profile</h4>
-          <p className="text-gray-700">
-            Easily set up your profile to showcase your skills, certifications, and experience. Start getting noticed by potential employers and clients.
+          <h4>Create Your Profile</h4>
+          <p>
+            Sign up for a free account, whether you're a tradesman or a business owner. Set up your profile to showcase your skills and experience, making it easier for clients and partners to find you.
           </p>
         </div>
 
         {/* Step 2 */}
-        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border border-gray-300">
-          <div className="text-4xl text-green-600 mb-4">
+        <div className="card">
+          <div className="icon">
             <VscTasklist />
           </div>
-          <h4 className="text-xl font-semibold text-gray-900 mb-4">Find Jobs or Hire</h4>
-          <p className="text-gray-700">
-            Browse job listings posted by business owners or post your own job requests. Get matched with tradesmen or contractors who meet your needs.
+          <h4>Find Jobs or Hire Professionals</h4>
+          <p>
+            Browse available job listings or post your own. We match you with the right people based on skills and needs, helping you find the best fit for the job.
           </p>
         </div>
 
         {/* Step 3 */}
-        <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border border-gray-300">
-          <div className="text-4xl text-orange-600 mb-4">
+        <div className="card">
+          <div className="icon">
             <BiSolidLike />
           </div>
-          <h4 className="text-xl font-semibold text-gray-900 mb-4">Work & Get Paid</h4>
-          <p className="text-gray-700">
-            Complete projects on time and ensure fair payment for your work. Business owners pay securely through escrow, ensuring timely payment upon completion.
+          <h4>Complete the Work and Get Paid</h4>
+          <p>
+            Finish the project on time, and get paid securely through our platform. Business owners pay via escrow, ensuring fair payment once the job is done.
           </p>
         </div>
       </div>
