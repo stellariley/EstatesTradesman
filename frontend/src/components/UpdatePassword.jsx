@@ -41,16 +41,15 @@ const UpdatePassword = () => {
   }, [dispatch, loading, error, isUpdated]);
 
   return (
-    <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
-      <h3 className="text-2xl font-semibold text-center text-gray-800 mb-6">Update Password</h3>
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-medium mb-2">Current Password</label>
-        <div className="relative">
+    <div className="account_components update_password_component">
+      <h3>Update Password</h3>
+      <div>
+        <label>Current Password</label>
+        <div>
           <input
             type={showPassword ? "text" : "password"}
             value={oldPassword}
             onChange={(e) => setOldPassword(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <span
             className="absolute right-3 top-3 cursor-pointer"
@@ -60,14 +59,13 @@ const UpdatePassword = () => {
           </span>
         </div>
       </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-medium mb-2">New Password</label>
-        <div className="relative">
+      <div>
+        <label>New Password</label>
+        <div>
           <input
             type={showPassword ? "text" : "password"}
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <span
             className="absolute right-3 top-3 cursor-pointer"
@@ -77,14 +75,13 @@ const UpdatePassword = () => {
           </span>
         </div>
       </div>
-      <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-medium mb-2">Confirm Password</label>
-        <div className="relative">
+      <div>
+        <label>Confirm Password</label>
+        <div>
           <input
             type={showPassword ? "text" : "password"}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <span
             className="absolute right-3 top-3 cursor-pointer"
@@ -94,9 +91,9 @@ const UpdatePassword = () => {
           </span>
         </div>
       </div>
-      <div className="text-center">
+      <div className="save_change_btn_wrapper">
         <button
-          className="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-gray-400"
+          className="btn"
           onClick={handleUpdatePassword}
           disabled={loading}
         >
