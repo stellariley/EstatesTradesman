@@ -22,6 +22,78 @@ const JobPost = () => {
   const [contactPhone, setContactPhone] = useState("");
   const [businessOwnerName, setBusinessOwnerName] = useState("");
 
+  const skillsArray = [ 
+    "Carpentry",
+    "Plumbing",
+    "Electrical Work",
+    "HVAC Installation & Repair",
+    "Roofing",
+    "Painting",
+    "Masonry",
+    "Flooring Installation",
+    "Landscaping",
+    "Welding",
+    "General Contracting",
+    "Framing",
+    "Drywall Installation & Repair",
+    "Tiling",
+    "Concrete Work",
+    "Window & Door Installation",
+    "Insulation Installation",
+    "Pest Control",
+    "Septic System Services",
+    "Handyman Services",
+  ];
+
+  const location = {
+    "California": ["Los Angeles", "San Diego", "San Francisco", "San Jose"],
+    "Texas": ["Houston", "Dallas", "Austin", "San Antonio"],
+    "New York": ["New York City", "Buffalo", "Rochester", "Albany"],
+    "Florida": ["Miami", "Orlando", "Tampa", "Jacksonville"],
+    "Illinois": ["Chicago", "Aurora", "Naperville", "Springfield"],
+    "Washington": ["Seattle", "Spokane", "Tacoma", "Vancouver"],
+    "Ohio": ["Columbus", "Cleveland", "Cincinnati", "Toledo"],
+    "Georgia": ["Atlanta", "Savannah", "Augusta", "Macon"],
+    "North Carolina": ["Charlotte", "Raleigh", "Durham", "Greensboro"],
+    "Arizona": ["Phoenix", "Tucson", "Mesa", "Chandler"],
+    "Michigan": ["Detroit", "Grand Rapids", "Ann Arbor", "Lansing"],
+    "Pennsylvania": ["Philadelphia", "Pittsburgh", "Allentown", "Erie"],
+    "Virginia": ["Virginia Beach", "Norfolk", "Richmond", "Chesapeake"],
+    "Tennessee": ["Nashville", "Memphis", "Knoxville", "Chattanooga"],
+    "Indiana": ["Indianapolis", "Fort Wayne", "Evansville", "South Bend"],
+    "Missouri": ["St. Louis", "Kansas City", "Springfield", "Columbia"],
+    "Maryland": ["Baltimore", "Columbia", "Silver Spring", "Rockville"],
+    "Wisconsin": ["Milwaukee", "Madison", "Green Bay", "Kenosha"],
+    "Minnesota": ["Minneapolis", "Saint Paul", "Rochester", "Duluth"],
+    "Colorado": ["Denver", "Colorado Springs", "Aurora", "Fort Collins"],
+    "Alabama": ["Birmingham", "Montgomery", "Huntsville", "Mobile"],
+    "South Carolina": ["Charleston", "Columbia", "Greenville", "Spartanburg"],
+    "Louisiana": ["New Orleans", "Baton Rouge", "Shreveport", "Lafayette"],
+    "Kentucky": ["Louisville", "Lexington", "Bowling Green", "Covington"],
+    "Oregon": ["Portland", "Salem", "Eugene", "Gresham"],
+    "Connecticut": ["Hartford", "New Haven", "Stamford", "Bridgeport"],
+    "Iowa": ["Des Moines", "Cedar Rapids", "Davenport", "Sioux City"],
+    "Nevada": ["Las Vegas", "Reno", "Henderson", "Sparks"],
+    "Arkansas": ["Little Rock", "Fort Smith", "Fayetteville", "Springdale"],
+    "Utah": ["Salt Lake City", "Provo", "West Valley City", "Orem"],
+    "Kansas": ["Wichita", "Overland Park", "Kansas City", "Olathe"],
+    "New Mexico": ["Albuquerque", "Santa Fe", "Las Cruces", "Rio Rancho"],
+    "Nebraska": ["Omaha", "Lincoln", "Bellevue", "Grand Island"],
+    "West Virginia": ["Charleston", "Huntington", "Morgantown", "Parkersburg"],
+    "Idaho": ["Boise", "Nampa", "Meridian", "Idaho Falls"],
+    "Hawaii": ["Honolulu", "Hilo", "Kailua", "Kaneohe"],
+    "Maine": ["Portland", "Lewiston", "Bangor", "Auburn"],
+    "New Hampshire": ["Manchester", "Nashua", "Concord", "Derry"],
+    "Montana": ["Billings", "Missoula", "Bozeman", "Great Falls"],
+    "Wyoming": ["Cheyenne", "Casper", "Laramie", "Gillette"],
+    "Alaska": ["Anchorage", "Fairbanks", "Juneau", "Wasilla"],
+    "Delaware": ["Wilmington", "Dover", "Newark", "Middletown"],
+    "Rhode Island": ["Providence", "Warwick", "Cranston", "Pawtucket"],
+    "Vermont": ["Burlington", "Rutland", "Barre", "Montpelier"],
+    "North Dakota": ["Fargo", "Bismarck", "Grand Forks", "Minot"],
+    "South Dakota": ["Sioux Falls", "Rapid City", "Aberdeen", "Brookings"],
+  };  
+
   const dispatch = useDispatch();
   const { loading, error, message } = useSelector((state) => state.jobs);
 
@@ -75,7 +147,7 @@ const JobPost = () => {
   }, [dispatch, error, message]);
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg space-y-6">
+    <div className="account_components">
       <h3 className="text-2xl font-semibold text-center">Post A Job</h3>
 
       <div className="space-y-4">
@@ -116,7 +188,7 @@ const JobPost = () => {
         
         <div className="flex justify-center mt-6">
           <button
-            className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 disabled:bg-gray-300"
+            className="bg-indigo-700 text-white px-6 py-3 rounded-md hover:bg-indigo-600 disabled:bg-gray-300"
             onClick={handlePostJob}
             disabled={loading}
           >
@@ -172,77 +244,5 @@ const SelectField = ({ label, value, setValue, options, disabled = false }) => (
     </select>
   </div>
 );
-
-const skillsArray = [ 
-  "Carpentry",
-  "Plumbing",
-  "Electrical Work",
-  "HVAC Installation & Repair",
-  "Roofing",
-  "Painting",
-  "Masonry",
-  "Flooring Installation",
-  "Landscaping",
-  "Welding",
-  "General Contracting",
-  "Framing",
-  "Drywall Installation & Repair",
-  "Tiling",
-  "Concrete Work",
-  "Window & Door Installation",
-  "Insulation Installation",
-  "Pest Control",
-  "Septic System Services",
-  "Handyman Services",
-];
-
-const location = {
-  "California": ["Los Angeles", "San Diego", "San Francisco", "San Jose"],
-  "Texas": ["Houston", "Dallas", "Austin", "San Antonio"],
-  "New York": ["New York City", "Buffalo", "Rochester", "Albany"],
-  "Florida": ["Miami", "Orlando", "Tampa", "Jacksonville"],
-  "Illinois": ["Chicago", "Aurora", "Naperville", "Springfield"],
-  "Washington": ["Seattle", "Spokane", "Tacoma", "Vancouver"],
-  "Ohio": ["Columbus", "Cleveland", "Cincinnati", "Toledo"],
-  "Georgia": ["Atlanta", "Savannah", "Augusta", "Macon"],
-  "North Carolina": ["Charlotte", "Raleigh", "Durham", "Greensboro"],
-  "Arizona": ["Phoenix", "Tucson", "Mesa", "Chandler"],
-  "Michigan": ["Detroit", "Grand Rapids", "Ann Arbor", "Lansing"],
-  "Pennsylvania": ["Philadelphia", "Pittsburgh", "Allentown", "Erie"],
-  "Virginia": ["Virginia Beach", "Norfolk", "Richmond", "Chesapeake"],
-  "Tennessee": ["Nashville", "Memphis", "Knoxville", "Chattanooga"],
-  "Indiana": ["Indianapolis", "Fort Wayne", "Evansville", "South Bend"],
-  "Missouri": ["St. Louis", "Kansas City", "Springfield", "Columbia"],
-  "Maryland": ["Baltimore", "Columbia", "Silver Spring", "Rockville"],
-  "Wisconsin": ["Milwaukee", "Madison", "Green Bay", "Kenosha"],
-  "Minnesota": ["Minneapolis", "Saint Paul", "Rochester", "Duluth"],
-  "Colorado": ["Denver", "Colorado Springs", "Aurora", "Fort Collins"],
-  "Alabama": ["Birmingham", "Montgomery", "Huntsville", "Mobile"],
-  "South Carolina": ["Charleston", "Columbia", "Greenville", "Spartanburg"],
-  "Louisiana": ["New Orleans", "Baton Rouge", "Shreveport", "Lafayette"],
-  "Kentucky": ["Louisville", "Lexington", "Bowling Green", "Covington"],
-  "Oregon": ["Portland", "Salem", "Eugene", "Gresham"],
-  "Connecticut": ["Hartford", "New Haven", "Stamford", "Bridgeport"],
-  "Iowa": ["Des Moines", "Cedar Rapids", "Davenport", "Sioux City"],
-  "Nevada": ["Las Vegas", "Reno", "Henderson", "Sparks"],
-  "Arkansas": ["Little Rock", "Fort Smith", "Fayetteville", "Springdale"],
-  "Utah": ["Salt Lake City", "Provo", "West Valley City", "Orem"],
-  "Kansas": ["Wichita", "Overland Park", "Kansas City", "Olathe"],
-  "New Mexico": ["Albuquerque", "Santa Fe", "Las Cruces", "Rio Rancho"],
-  "Nebraska": ["Omaha", "Lincoln", "Bellevue", "Grand Island"],
-  "West Virginia": ["Charleston", "Huntington", "Morgantown", "Parkersburg"],
-  "Idaho": ["Boise", "Nampa", "Meridian", "Idaho Falls"],
-  "Hawaii": ["Honolulu", "Hilo", "Kailua", "Kaneohe"],
-  "Maine": ["Portland", "Lewiston", "Bangor", "Auburn"],
-  "New Hampshire": ["Manchester", "Nashua", "Concord", "Derry"],
-  "Montana": ["Billings", "Missoula", "Bozeman", "Great Falls"],
-  "Wyoming": ["Cheyenne", "Casper", "Laramie", "Gillette"],
-  "Alaska": ["Anchorage", "Fairbanks", "Juneau", "Wasilla"],
-  "Delaware": ["Wilmington", "Dover", "Newark", "Middletown"],
-  "Rhode Island": ["Providence", "Warwick", "Cranston", "Pawtucket"],
-  "Vermont": ["Burlington", "Rutland", "Barre", "Montpelier"],
-  "North Dakota": ["Fargo", "Bismarck", "Grand Forks", "Minot"],
-  "South Dakota": ["Sioux Falls", "Rapid City", "Aberdeen", "Brookings"],
-};
 
 export default JobPost;
