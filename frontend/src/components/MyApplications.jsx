@@ -47,50 +47,50 @@ const MyApplications = () => {
           You have not applied for any job.
         </h1>
       ) : (
-        <div className="max-w-4xl mx-auto py-8">
+        <div className="account_components max-w-4xl mx-auto py-8 px-4">
           <h3 className="text-2xl font-semibold mb-6 text-center">My Applications For Jobs</h3>
           {user && (
-            <p className="text-center text-lg">
+            <p className="text-center text-lg mb-6">
               <strong>Welcome, {user.name}!</strong>
               <br />
               <span>Role: {user.role}</span>
             </p>
           )}
-          <div className="space-y-8">
+          <div className="applications_container space-y-8">
             {applications.map((element) => {
               const { jobInfo, tradesmanInfo } = element;
               const { jobTitle } = jobInfo;
               const { name, email, phone, address, coverLetter, resume } = tradesmanInfo;
 
               return (
-                <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300" key={element._id}>
-                  <p className="text-lg mb-2">
-                    <span className="font-semibold">Job Title: </span> {jobTitle}
+                <div className="card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300" key={element._id}>
+                  <p className="sub-sec">
+                    <span>Job Title: </span> {jobTitle}
                   </p>
-                  <p className="text-lg mb-2">
-                    <span className="font-semibold">Name: </span> {name}
+                  <p className="sub-sec">
+                    <span>Name: </span> {name}
                   </p>
-                  <p className="text-lg mb-2">
-                    <span className="font-semibold">Email: </span> {email}
+                  <p className="sub-sec">
+                    <span>Email: </span> {email}
                   </p>
-                  <p className="text-lg mb-2">
-                    <span className="font-semibold">Phone: </span> {phone}
+                  <p className="sub-sec">
+                    <span>Phone: </span> {phone}
                   </p>
-                  <p className="text-lg mb-2">
-                    <span className="font-semibold">Address: </span> {address}
+                  <p className="sub-sec">
+                    <span>Address: </span> {address}
                   </p>
-                  <p className="text-lg mb-4">
-                    <span className="font-semibold">Coverletter: </span>
+                  <p className="sub-sec">
+                    <span>Cover Letter: </span>
                     <textarea
-                      className="w-full p-2 mt-2 border border-gray-300 rounded-md"
+                      className="w-full p-2 mt-2 border border-gray-300 rounded-md resize-none"
                       value={coverLetter}
                       rows={5}
                       disabled
                     ></textarea>
                   </p>
-                  <div className="flex justify-between items-center">
+                  <div className="btn-wrapper flex justify-between items-center mt-4">
                     <button
-                      className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                      className="outline_btn px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
                       onClick={() => handleDeleteApplication(element._id)}
                       aria-label="Delete Application"
                     >
@@ -99,7 +99,7 @@ const MyApplications = () => {
                     {resume?.url && (
                       <Link
                         to={resume.url}
-                        className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                        className="btn px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="View Resume"
