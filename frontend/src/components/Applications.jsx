@@ -10,7 +10,7 @@ import {
 import Spinner from "./Spinner.jsx";
 import { Link } from "react-router-dom";
 
-const Applications = () => {
+function Applications () {
   const { applications, loading, error, message } = useSelector(
     (state) => state.applications
   );
@@ -38,55 +38,51 @@ const Applications = () => {
       {loading ? (
         <Spinner />
       ) : applications && applications.length <= 0 ? (
-        <h1 className="text-center text-xl text-gray-700">
-          You have no applications from Tradesmen.
-        </h1>
+        <h1>You have no applications from Tradesmen.</h1>
       ) : (
-        <div className="space-y-8 px-4 md:px-10">
-          <h3 className="text-2xl font-semibold text-gray-900">Applications For Your Posted Jobs</h3>
-          <div className="space-y-6">
+        <div className="account_components">
+          <h3>Applications For Your Posted Jobs</h3>
+          <div className="applications_container">
             {applications.map((element) => (
-              <div
-                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
-                key={element._id}
-              >
-                <div className="space-y-4">
-                  <p className="text-lg text-gray-800">
-                    <span className="font-semibold">Job Title: </span> {element.jobInfo.jobTitle}
+              <div className="card" key={element._id}>
+                <div>
+                  <p className="sub-sec">
+                    <span>Job Title: </span> {element.jobInfo.jobTitle}
                   </p>
-                  <p className="text-lg text-gray-800">
-                    <span className="font-semibold">Applicant's Name: </span> {element.tradesmanInfo.name}
+                  <p className="sub-sec">
+                    <span>Applicant's Name: </span> {element.tradesmanInfo.name}
                   </p>
-                  <p className="text-lg text-gray-800">
-                    <span className="font-semibold">Applicant's Email: </span> {element.tradesmanInfo.email}
+                  <p className="sub-sec">
+                    <span>Applicant's Email: </span> {element.tradesmanInfo.email}
                   </p>
-                  <p className="text-lg text-gray-800">
-                    <span className="font-semibold">Applicant's Phone: </span> {element.tradesmanInfo.phone}
+                  <p className="sub-sec">
+                    <span>Applicant's Phone: </span> {element.tradesmanInfo.phone}
                   </p>
-                  <p className="text-lg text-gray-800">
-                    <span className="font-semibold">Applicant's Address: </span> {element.tradesmanInfo.address}
+                  <p className="sub-sec">
+                    <span>Applicant's Address: </span> {element.tradesmanInfo.address}
                   </p>
-                  <p className="text-lg text-gray-800">
-                    <span className="font-semibold">Applicant's Cover Letter: </span>
+                  <p className="sub-sec">
+                    <span>Applicant's Cover Letter: </span>
                     <textarea
-                      className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
                       value={element.tradesmanInfo.coverLetter}
                       rows={5}
                       disabled
                     ></textarea>
                   </p>
                 </div>
-
-                <div className="flex justify-between items-center mt-6 space-x-4">
+                <div className="btn-wrapper">
                   <button
-                    className="px-6 py-3 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="outline_btn"
                     onClick={() => handleDeleteApplication(element._id)}
                   >
                     Delete Application
                   </button>
                   <Link
-                    to={element.tradesmanInfo && element.tradesmanInfo.resume.url}
-                    className="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    to={
+                      element.tradesmanInfo && 
+                      element.tradesmanInfo.resume.url
+                    }
+                    className="btn"
                     target="_blank"
                   >
                     View Resume
