@@ -93,54 +93,50 @@ const UpdateProfile = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+    <div className="account_components">
       <h3 className="text-2xl font-semibold text-center text-gray-800 mb-6">Update Profile</h3>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+      <div>
+        <label>Full Name</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+      <div>
+        <label>Email Address</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+      <div>
+        <label>Phone Number</label>
         <input
           type="number"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Address</label>
+      <div>
+        <label>Address</label>
         <input
           type="text"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
       {user && user.role === "Tradesman" && (
         <>
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">My Preferred Job Skills</label>
-            <div className="space-y-4">
+          <div>
+            <label>My Preferred Job Skills</label>
+            <div>
               <select
                 value={firstSkill}
                 onChange={(e) => setFirstSkill(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    
               >
                 {skillsArray.map((element, index) => (
                   <option value={element} key={index}>
@@ -151,7 +147,7 @@ const UpdateProfile = () => {
               <select
                 value={secondSkill}
                 onChange={(e) => setSecondSkill(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    
               >
                 {skillsArray.map((element, index) => (
                   <option value={element} key={index}>
@@ -162,7 +158,7 @@ const UpdateProfile = () => {
               <select
                 value={thirdSkill}
                 onChange={(e) => setThirdSkill(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    
               >
                 {skillsArray.map((element, index) => (
                   <option value={element} key={index}>
@@ -172,29 +168,29 @@ const UpdateProfile = () => {
               </select>
             </div>
           </div>
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Coverletter</label>
+          <div>
+            <label>Coverletter</label>
             <textarea
               value={coverLetter}
               onChange={(e) => setCoverLetter(e.target.value)}
               rows={5}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+  
             />
           </div>
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Upload Resume</label>
+          <div>
+            <label>Upload Resume</label>
             <input
               type="file"
               onChange={resumeHandler}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+  
             />
             {user && user.resume && (
-              <div className="mt-2">
-                <p className="text-sm text-gray-600">Current Resume:</p>
+              <div>
+                <p>Current Resume:</p>
                 <Link
                   to={user.resume && user.resume.url}
                   target="_blank"
-                  className="text-indigo-600 hover:text-indigo-800"
+                  className="view-resume"
                 >
                   View Resume
                 </Link>
@@ -203,9 +199,9 @@ const UpdateProfile = () => {
           </div>
         </>
       )}
-      <div className="text-center">
+      <div className="save_change_btn_wrapper">
         <button
-          className="w-full py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-gray-400"
+          className="btn"
           onClick={handleUpdateProfile}
           disabled={loading}
         >
