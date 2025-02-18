@@ -93,8 +93,8 @@ const UpdateProfile = () => {
   ];
 
   return (
-    <div className="account_components">
-      <h3 className="text-2xl font-semibold text-center text-gray-800 mb-6">Update Profile</h3>
+    <div className="update_account_components">
+      <h3>Update Profile</h3>
       <div>
         <label>Full Name</label>
         <input
