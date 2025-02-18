@@ -41,17 +41,17 @@ const TopSkills = () => {
   ];
 
   return (
-    <section className="bg-gray-100 py-12 px-4">
-      <h3 className="text-3xl font-semibold text-center text-gray-800 mb-8">Top Skills</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+    <section className="services">
+      <h3>Top Skills</h3>
+      <div className="grid">
         {skills.map((element) => {
           return (
             <div
-              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="card"
               key={element.id}
             >
-              <h4 className="text-xl font-bold text-gray-900 mb-4">{element.skill}</h4>
-              <p className="text-gray-600">{element.description}</p>
+              <h4>{element.skill}</h4>
+              <p>{element.description}</p>
             </div>
           );
         })}
