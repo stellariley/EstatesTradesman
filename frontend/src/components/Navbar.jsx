@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -21,35 +22,33 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div ref={navRef} className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center relative">
-        {/* Logo on the left */}
-        <a href="/" className="text-3xl font-bold text-black hover:text-blue-600">
+    <nav className={styles.navbar}>
+      <div ref={navRef} className={styles.navbarContainer}>
+        <a href="/" className={styles.logo}>
           EstatesTradesman
         </a>
 
-        {/* Links aligned to the right */}
-        <div className="ml-auto hidden sm:block">
-          <ul className="flex space-x-6">
+        <div className={styles.linksContainer}>
+          <ul className={styles.linksList}>
             <li>
-              <Link to="/" className="text-lg font-medium text-gray-700 hover:text-blue-600">
+              <Link to="/" className={styles.link}>
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/jobs" className="text-lg font-medium text-gray-700 hover:text-blue-600">
+              <Link to="/jobs" className={styles.link}>
                 JOBS
               </Link>
             </li>
             {isAuthenticated ? (
               <li>
-                <Link to="/dashboard" className="text-lg font-medium text-gray-700 hover:text-blue-600">
+                <Link to="/dashboard" className={styles.link}>
                   DASHBOARD
                 </Link>
               </li>
             ) : (
               <li>
-                <Link to="/login" className="text-lg font-medium text-gray-700 hover:text-blue-600">
+                <Link to="/login" className={styles.link}>
                   LOGIN
                 </Link>
               </li>
@@ -57,34 +56,32 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Mobile Menu Icon */}
         <GiHamburgerMenu
-          className="text-3xl cursor-pointer sm:hidden ml-auto"
+          className={styles.mobileMenuIcon}
           onClick={() => setShow(!show)}
         />
 
-        {/* Mobile Dropdown */}
-        <div className={`absolute top-full right-0 w-full bg-white shadow-lg sm:hidden ${show ? "block" : "hidden"}`}>
-          <ul className="flex flex-col space-y-4 p-4">
+        <div className={`${styles.mobileMenu} ${show ? styles.show : ''}`}>
+          <ul className={styles.mobileMenuList}>
             <li>
-              <Link to="/" onClick={() => setShow(false)} className="text-lg font-medium text-gray-700 hover:text-blue-600">
+              <Link to="/" onClick={() => setShow(false)} className={styles.mobileLink}>
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/jobs" onClick={() => setShow(false)} className="text-lg font-medium text-gray-700 hover:text-blue-600">
+              <Link to="/jobs" onClick={() => setShow(false)} className={styles.mobileLink}>
                 JOBS
               </Link>
             </li>
             {isAuthenticated ? (
               <li>
-                <Link to="/dashboard" onClick={() => setShow(false)} className="text-lg font-medium text-gray-700 hover:text-blue-600">
+                <Link to="/dashboard" onClick={() => setShow(false)} className={styles.mobileLink}>
                   DASHBOARD
                 </Link>
               </li>
             ) : (
               <li>
-                <Link to="/login" onClick={() => setShow(false)} className="text-lg font-medium text-gray-700 hover:text-blue-600">
+                <Link to="/login" onClick={() => setShow(false)} className={styles.mobileLink}>
                   LOGIN
                 </Link>
               </li>
