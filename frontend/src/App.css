@@ -98,9 +98,9 @@ body {
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: bold;
-  background: linear-gradient(90deg, rgb(0, 0, 0), #2563eb);
+  background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -108,7 +108,7 @@ body {
 }
 
 .logo:hover {
-  background: linear-gradient(90deg, #2563eb, rgb(0, 0, 0));
+  background: linear-gradient(90deg, #7c7fd6, rgb(0, 0, 0), #7c7fd6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -125,7 +125,7 @@ body {
 }
 
 .link {
-  font-size: 1.125rem;
+  font-size: 1.12rem;
   font-weight: 500;
   color: #4b5563;
   text-decoration: none;
