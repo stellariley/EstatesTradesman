@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react"; 
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -22,33 +21,33 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={styles.navbar}>
-      <div ref={navRef} className={styles.navbarContainer}>
-        <a href="/" className={styles.logo}>
+    <nav className="navbar">
+      <div ref={navRef} className="navbarContainer">
+        <a href="/" className="logo">
           EstatesTradesman
         </a>
 
-        <div className={styles.linksContainer}>
-          <ul className={styles.linksList}>
+        <div className="linksContainer">
+          <ul className="linksList">
             <li>
-              <Link to="/" className={styles.link}>
+              <Link to="/" className="link">
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/jobs" className={styles.link}>
+              <Link to="/jobs" className="link">
                 JOBS
               </Link>
             </li>
             {isAuthenticated ? (
               <li>
-                <Link to="/dashboard" className={styles.link}>
+                <Link to="/dashboard" className="link">
                   DASHBOARD
                 </Link>
               </li>
             ) : (
               <li>
-                <Link to="/login" className={styles.link}>
+                <Link to="/login" className="link">
                   LOGIN
                 </Link>
               </li>
@@ -57,31 +56,31 @@ const Navbar = () => {
         </div>
 
         <GiHamburgerMenu
-          className={styles.mobileMenuIcon}
+          className="mobileMenuIcon"
           onClick={() => setShow(!show)}
         />
 
-        <div className={`${styles.mobileMenu} ${show ? styles.show : ''}`}>
-          <ul className={styles.mobileMenuList}>
+        <div className={`mobileMenu ${show ? 'show' : ''}`}>
+          <ul className="mobileMenuList">
             <li>
-              <Link to="/" onClick={() => setShow(false)} className={styles.mobileLink}>
+              <Link to="/" onClick={() => setShow(false)} className="mobileLink">
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/jobs" onClick={() => setShow(false)} className={styles.mobileLink}>
+              <Link to="/jobs" onClick={() => setShow(false)} className="mobileLink">
                 JOBS
               </Link>
             </li>
             {isAuthenticated ? (
               <li>
-                <Link to="/dashboard" onClick={() => setShow(false)} className={styles.mobileLink}>
+                <Link to="/dashboard" onClick={() => setShow(false)} className="mobileLink">
                   DASHBOARD
                 </Link>
               </li>
             ) : (
               <li>
-                <Link to="/login" onClick={() => setShow(false)} className={styles.mobileLink}>
+                <Link to="/login" onClick={() => setShow(false)} className="mobileLink">
                   LOGIN
                 </Link>
               </li>
