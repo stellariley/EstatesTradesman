@@ -936,23 +936,27 @@ body {
 .account_components {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 25px;
   width: 100%;
-  min-height: 400px;
+  min-height: 450px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
 }
 .account_components .view-resume {
-  background: #000000;
-  color: #fff;
+  background: none;
+  color: #0e00d4;
   padding: 8px 20px;
   font-size: 20px;
   width: fit-content;
-  text-decoration: none;
-  border-radius: 7px;
+  text-decoration: underline;
+  border-radius: 0;
 }
 .account_components h3 {
   font-size: 30px;
   font-weight: 600;
   color: #7c7fd6;
+  text-align: center;
 }
 .account_components div:first-child {
   font-size: 30px;
@@ -983,9 +987,9 @@ body {
 .account_components div input,
 .account_components div select,
 .account_components div textarea {
-  background: #8080805e;
+  background: #d6d4d4;
   border: none;
-  color: #555;
+  color: #3d3b3b;
   padding: 8px 3px;
 }
 .account_components div input:focus,
@@ -1290,127 +1294,179 @@ body {
   display: flex;
   gap: 40px;
   max-width: 1500px;
-  min-width: 1500px;
+  width: 100%;
   margin: 0 auto;
+  padding: 40px;
 }
+
 .application_page form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-.application_page form h3 {
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-.application_page form div {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.application_page form div input {
-  padding: 7px 4px;
-}
-
-.application_page .job-details,
-.application_page form {
   flex: 1;
   padding: 50px 0;
 }
-.application_page .job-details {
-  display: flex;
-  flex-direction: column;
+
+.application_page form h3 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #5f62c9;
 }
-.application_page .job-details header {
+
+.application_page form div {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.application_page .job-details h3 {
-  font-size: 24px;
+
+.application_page form div label {
   font-weight: 500;
 }
+
+.application_page form div input,
+.application_page form div textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #e9e7e7;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.application_page form div textarea {
+  resize: none;
+}
+
+.application_page .btn {
+  font-size: 18px;
+    font-weight: 400;
+    min-width: fit-content;
+    max-width: fit-content;
+    padding: 10px;
+  }
+.btn:hover {
+  background-color: #111;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.application_page .job-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+}
+
+.application_page .job-details header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.application_page .job-details h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .application_page .job-details header a,
 .application_page .job-details header p {
   font-size: 16px;
   color: gray;
 }
-hr {
-  margin: 20px 0;
+.application_page .job-details section .wrapper div span:first-child {
+  font-weight: 500;
+  color: #000000;
 }
 .application_page .job-details section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
-.application_page .job-details section .wrapper {
+
+.application_page .job-details .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
-.application_page .job-details section .wrapper:first-child div {
-  display: flex;
-  gap: 10px;
-}
-.application_page .job-details section .wrapper:first-child div div {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-.application_page .job-details section .wrapper:first-child div div span {
-  font-size: 16px;
-  color: gray;
-}
-.application_page .job-details section .wrapper .location-wrapper {
+
+.application_page .job-details .wrapper div {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
-.application_page .job-details section .wrapper .location-wrapper span {
-  color: gray;
-  font-size: 16px;
-  display: contents;
-}
-.application_page .job-details section .wrapper:last-child p {
-  font-size: 16px;
-  color: gray;
-}
-.application_page .job-details section .wrapper:last-child h4 {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-.application_page .job-details section .wrapper:last-child ul li {
-  font-size: 16px;
-  color: gray;
-}
-.application_page .job-details footer {
+
+.application_page .job-details .wrapper div div {
   display: flex;
   flex-direction: column;
-  grid-area: 10px;
-  background: transparent;
-  padding: 0;
-  border: none;
+  gap: 5px;
 }
+
+.application_page .job-details .wrapper div div span {
+  font-size: 16px;
+  color: gray;
+}
+
+.application_page .job-details .location-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.application_page .job-details .location-wrapper span {
+  font-size: 16px;
+  color: gray;
+}
+
+.application_page .job-details h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.application_page .job-details p {
+  font-size: 16px;
+  color: gray;
+}
+
+.application_page .job-details ul {
+  list-style: inside;
+  padding-left: 15px;
+}
+
+.application_page .job-details ul li {
+  font-size: 16px;
+  color: gray;
+}
+
+.application_page .job-details footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
 .application_page .job-details footer p {
   font-size: 16px;
   color: gray;
 }
 
+/* Responsive Design */
 @media (max-width: 1520px) {
   .application_page {
-    min-width: 100%;
     padding: 20px;
   }
 }
+
 @media (max-width: 830px) {
   .application_page {
     flex-direction: column-reverse;
-    gap: 0;
+    gap: 20px;
   }
+
   .application_page form {
     padding-top: 0;
   }
 }
+
 @media (max-width: 411px) {
   .btn {
     min-width: 100%;
@@ -1425,4 +1481,210 @@ button:disabled:hover {
   background: gray;
   cursor: not-allowed;
   color: #111;
+}
+
+.update_account_components { 
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  min-height: 450px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.update_account_components .view-resume {
+  background: none;
+  color: #0e00d4;
+  padding: 8px 20px;
+  font-size: 20px;
+  width: fit-content;
+  text-decoration: underline;
+  border-radius: 0;
+}
+
+.update_account_components h3 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #7c7fd6;
+  text-align: center;
+}
+
+.update_account_components div:first-child {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.update_account_components img {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 3px solid #7c7fd6;
+}
+
+.update_account_components div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.update_account_components div .label-infoTag-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.update_account_components div .label-infoTag-wrapper span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.update_account_components div input,
+.update_account_components div select,
+.update_account_components div textarea {
+  background: #ececec;
+  border: 1px solid #c4c4c4;
+  color: #333;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+
+.update_account_components div input:focus,
+.update_account_components div select:focus,
+.update_account_components div textarea:focus {
+  outline: 2px solid #7c7fd6;
+}
+
+.update_sidebar_icon {
+  display: none;
+}
+
+.update_account_components .save_change_btn_wrapper {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.save_change_btn_wrapper .btn {
+  font-size: 18px;
+    font-weight: 400;
+    min-width: fit-content;
+    max-width: fit-content;
+    padding: 10px;
+  }
+.btn:hover {
+  background-color: #111;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.update_account_components input::file-selector-button {
+  width: 100%;
+  padding: 7px;
+}
+
+.update_account_components input[type="file"] {
+  background: none;
+  background-color: #f0f0f0;
+}
+
+.update_account_components .inbox_container .card {
+  background: #f0f0f0;
+  padding: 24px 12px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  font-size: 22px;
+  border-radius: 10px;
+}
+
+.update_account_components .inbox_container .card:hover {
+  background: rgba(133, 133, 124, 0.25);
+}
+
+.update_account_components .applications_container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.update_account_components .applications_container .card {
+  margin-bottom: 25px;
+  background: #7c7fd623;
+  padding: 20px 10px;
+  border-radius: 8px;
+}
+
+.update_account_components .applications_container .card .sub-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 16px;
+  color: gray;
+}
+
+.update_account_components .applications_container .card .sub-sec span {
+  font-weight: 600;
+  font-size: 20px;
+  color: #111;
+}
+
+.update_account_components .applications_container .card .sub-sec textarea {
+  background: transparent;
+  font-size: 16px;
+}
+
+.update_account_components .applications_container .card .btn-wrapper {
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+@media (max-width: 920px) {
+  .update_account {
+    padding: 40px 20px;
+    min-height: 750px;
+  }
+}
+
+@media (max-width: 712px) {
+  .update_account_components h3 {
+    margin-top: 25px;
+  }
+  .update_account .container .sidebar h4 {
+    color: #fff;
+  }
+  .update_account .component_header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .update_sidebar_icon {
+    display: flex;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 100%;
+    position: relative;
+    bottom: -18px;
+  }
+  .update_account .container {
+    position: relative;
+  }
+}
+
+@media (max-width: 512px) {
+  .save_change_btn_wrapper .btn {
+    width: 100%;
+  }
+  .update_account_components img {
+    margin: 0 auto;
+  }
 }
