@@ -686,7 +686,6 @@ body {
   }
 }
 
-
 .registerPage { 
   display: flex;
   justify-content: center;
@@ -850,22 +849,27 @@ body {
 .jobs {
   padding: 40px 100px;
   min-height: 800px;
+  background-color: #f9f9f9; /* Light background color */
 }
+
 .jobs .wrapper {
   display: flex;
   gap: 50px;
 }
+
 .jobs .wrapper .filter-bar {
   width: 25%;
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
+
 .jobs .wrapper .filter-bar .cities {
   flex-direction: column;
   gap: 7px;
   display: flex;
 }
+
 .jobs .wrapper .filter-bar .cities h2 {
   font-size: 24px;
   font-weight: 500;
@@ -873,11 +877,13 @@ body {
   border-bottom: 1px solid gray;
   margin-bottom: 20px;
 }
+
 .jobs .wrapper .filter-bar .cities div {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .jobs .search-tab-wrapper {
   display: flex;
   position: relative;
@@ -886,13 +892,15 @@ body {
   margin: 0 auto;
   margin-bottom: 30px;
 }
+
 .jobs .search-tab-wrapper input {
   width: 100%;
   font-size: 20px;
   border-radius: 7px;
   padding: 12px 140px 12px 8px;
-  border: 1px solid gray;
+  border: 1px solid #ccc;
 }
+
 .jobs .search-tab-wrapper svg {
   display: none;
   position: absolute;
@@ -900,20 +908,23 @@ body {
   top: 18px;
   color: #111;
 }
+
 .jobs .search-tab-wrapper button {
   position: absolute;
   right: 16px;
   top: 11px;
-  background: #7c7fd6;
-  color: #111;
+  background: #7c7fd6; /* Main blue color */
+  color: #fff;
   font-weight: 500;
   padding: 2px 10px;
   border-radius: 7px;
   border: none;
 }
+
 .jobs .container {
   width: 75%;
 }
+
 .jobs .container .jobs_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -921,6 +932,7 @@ body {
   padding: 50px 0;
   width: 100%;
 }
+
 .jobs .container .jobs_container .card {
   transition: 0.3s;
   text-decoration: none;
@@ -931,35 +943,15 @@ body {
   flex-direction: column;
   gap: 5px;
   border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
 }
-/* .jobs .container .jobs_container .card .product-image {
-  background: rgba(133, 133, 124, 0.19);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 280px;
-  position: relative;
-}
-.jobs .container .jobs_container .card .product-image img {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-.jobs .container .jobs_container .card .product-image a {
-  color: #111;
-  text-decoration: none;
-}
-.jobs .container .jobs_container .card .product-image svg {
-  position: absolute;
-  right: 17px;
-  top: 18px;
-  font-size: 24px;
-} */
+
 .jobs .container .jobs_container .card .title {
   color: #111;
   font-size: 24px;
   font-weight: 600;
 }
+
 .jobs .container .jobs_container .card .hiring-multiple {
   font-size: 16px;
   color: #008b00;
@@ -968,6 +960,7 @@ body {
   border-radius: 5px;
   width: fit-content;
 }
+
 .jobs .container .jobs_container .card .hiring {
   color: rgb(0, 145, 255);
   font-size: 16px;
@@ -976,29 +969,32 @@ body {
   border-radius: 5px;
   width: fit-content;
 }
-.jobs .container .jobs_container .card .company,
+
+.jobs .container .jobs_container .card .businessOwner,
 .jobs .container .jobs_container .card .location,
 .jobs .container .jobs_container .card .salary,
 .jobs .container .jobs_container .card .posted {
   font-size: 16px;
   color: gray;
 }
+
 .jobs .container .jobs_container .card .salary span,
 .jobs .container .jobs_container .card .posted span {
   font-weight: 600;
   color: #111;
-  font-size: 16px;
 }
 
 .jobs .container .jobs_container .card:hover {
   transition: 0.3s;
   background: rgba(133, 133, 124, 0.19);
 }
+
 .jobs .jobs_container .card .btn-wrapper {
   display: flex;
   justify-content: flex-end;
   gap: 18px;
 }
+
 .mobile-filter {
   display: none;
 }
@@ -1011,6 +1007,7 @@ body {
     width: 100%;
   }
 }
+
 @media (max-width: 730px) {
   .jobs .wrapper .filter-bar {
     display: none;
@@ -1034,6 +1031,7 @@ body {
     padding: 4px 8px;
   }
 }
+
 @media (max-width: 550px) {
   .jobs .container .jobs_container .card {
     padding: 20px 8px;
