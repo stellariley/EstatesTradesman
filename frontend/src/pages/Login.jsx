@@ -95,12 +95,9 @@ const Login = () => {
           >
             {loading ? "Loading..." : "Login"}
           </button>
-
-          <div>
             <Link to={"/register"}>
               Register Now
             </Link>
-          </div>
         </form>
       </div>
     </section>

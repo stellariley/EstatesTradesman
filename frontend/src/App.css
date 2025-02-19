@@ -528,10 +528,11 @@ body {
 
 .loginPage { 
   display: flex;
-  min-width: 1500px;
-  max-width: 1500px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   min-height: 100vh;
+  background-color: #f8f8f8;
 }
 .loginPage .container {
   flex: 1;
@@ -540,17 +541,20 @@ body {
   justify-content: center;
   background: #fff;
   padding: 20px 20px;
+  border-radius: 10px;
   max-width: 1500px;
 }
 .loginPage .login-container {
   max-width: 620px;
 }
 .loginPage .container .header {
+  color: #7c7fd6;
   display: flex;
   gap: 15px;
   flex-direction: column;
 }
 .loginPage .container .header h3 {
+  font-weight: 700;
   font-size: 1.6rem;
 }
 .loginPage .container .header img {
@@ -614,6 +618,12 @@ body {
   font-size: 1.2rem;
   border-radius: 7px;
 }
+.loginPage .container form button:hover {
+  background-color: #131313;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
 .loginPage .container form a {
   padding: 12px;
   text-align: center;
@@ -624,6 +634,13 @@ body {
   font-size: 1.2rem;
   text-decoration: none;
   border-radius: 7px;
+}
+.loginPage .container form a:hover {
+  border: 1px solid #7c7fd6;
+  background-color: #131313;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
 }
 .loginPage .banner {
   flex: 2;
@@ -672,10 +689,11 @@ body {
 
 .registerPage { 
   display: flex;
-  min-width: 1500px;
-  max-width: 1500px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   min-height: 100vh;
+  background-color: #f8f8f8;
 }
 .registerPage .container {
   flex: 1;
@@ -687,14 +705,17 @@ body {
   max-width: 1500px;
 }
 .registerPage .register-container {
+  border-radius: 10px;
   max-width: 700px;
 }
 .registerPage .container .header {
+  color: #7c7fd6;
   display: flex;
   gap: 15px;
   flex-direction: column;
 }
 .registerPage .container .header h3 {
+  font-weight: 700;
   font-size: 1.8rem;
 }
 .registerPage .container .header img {
@@ -758,6 +779,12 @@ body {
   font-size: 1.3rem;
   border-radius: 7px;
 }
+.registerPage .container form button:hover {
+  background-color: #131313;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
 .registerPage .container form a {
   padding: 12px;
   text-align: center;
@@ -768,6 +795,13 @@ body {
   font-size: 1.2rem;
   text-decoration: none;
   border-radius: 7px;
+}
+.registerPage .container form a:hover {
+  border: 1px solid #7c7fd6;
+  background-color: #131313;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
 }
 .registerPage .banner {
   flex: 2;
