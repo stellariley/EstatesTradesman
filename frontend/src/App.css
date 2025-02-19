@@ -670,6 +670,149 @@ body {
 }
 
 
+.registerPage { 
+  display: flex;
+  min-width: 1500px;
+  max-width: 1500px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.registerPage .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  padding: 20px 20px;
+  max-width: 1500px;
+}
+.registerPage .register-container {
+  max-width: 700px;
+}
+.registerPage .container .header {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+.registerPage .container .header h3 {
+  font-size: 1.8rem;
+}
+.registerPage .container .header img {
+  width: 320px;
+  height: 130px;
+  margin: 0 auto;
+}
+.registerPage .container .header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.registerPage .container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.registerPage .container form .wrapper {
+  display: flex;
+  gap: 20px;
+}
+.registerPage .container form .inputTag {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.registerPage .container form .inputTag div {
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+}
+.registerPage .container form .inputTag div input,
+.registerPage .container form .inputTag div select,
+.registerPage .container form .inputTag div textarea {
+  background: #ececec;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+.registerPage .container form .inputTag div input:focus,
+.registerPage .container form .inputTag div select:focus,
+.registerPage .container form .inputTag div textarea:focus {
+  outline: none;
+}
+.registerPage .container form .inputTag div svg {
+  width: 10%;
+  font-size: 1.5rem;
+  background: #7c7fd6;
+  height: 48px;
+  padding: 10px;
+  color: #fff;
+}
+.registerPage .container form button {
+  padding: 14px;
+  text-align: center;
+  border: none;
+  margin-top: 25px;
+  font-weight: 700;
+  color: #fff;
+  background: #7c7fd6;
+  font-size: 1.3rem;
+  border-radius: 7px;
+}
+.registerPage .container form a {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #7c7fd6;
+  margin-top: 25px;
+  font-weight: 700;
+  color: #7c7fd6;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 7px;
+}
+.registerPage .banner {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+}
+.registerPage .banner img {
+  width: 100%;
+  width: 600px;
+  height: 600px;
+}
+@media (max-width: 1520px) {
+  .registerPage {
+    min-width: 100%;
+  }
+}
+@media (max-width: 1030px) {
+  .registerPage .container {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 910px) {
+  .registerPage .container form .wrapper {
+    flex-direction: column;
+  }
+}
+@media (max-width: 830px) {
+  .registerPage {
+    min-height: 100vh;
+    height: auto;
+  }
+  .registerPage .container {
+    flex: none;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 40px 20px;
+  }
+  .registerPage .banner {
+    flex: none;
+    display: none;
+  }
+}
+
 .jobs {
   padding: 40px 100px;
   min-height: 800px;
