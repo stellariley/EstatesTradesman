@@ -72,7 +72,7 @@ const MyJobs = () => {
                   <span className="font-semibold text-slate-900">Qualifications:</span> {element.qualifications}
                 </p>
                 <p className="text-md text-gray-600 mb-2">
-                  <span className="font-semibold text-slate-900">Hiring Multiple Candidates?</span> {element.hiringMultipleCandidates}
+                  <span className="font-semibold text-slate-900">Hiring Multiple Candidates?</span> {element.hiringMultipleTradesmen}
                 </p>
                 <p className="text-md text-gray-600 mb-2">
                   <span className="font-semibold text-slate-900">Contact Email:</span> {element.contactInfo.email}

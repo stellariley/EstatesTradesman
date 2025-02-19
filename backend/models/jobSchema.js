@@ -35,8 +35,8 @@ const jobSchema = new mongoose.Schema({
     required: true,
   },
   hiringMultipleTradesmen: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: "No",
   },
   jobSkill: {
     type: String,

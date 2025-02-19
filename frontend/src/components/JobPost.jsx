@@ -16,7 +16,7 @@ const JobPost = () => {
   const [responsibilities, setResponsibilities] = useState("");
   const [qualifications, setQualifications] = useState("");
   const [budget, setBudget] = useState("");
-  const [hiringMultipleCandidates, setHiringMultipleCandidates] = useState("");
+  const [hiringMultipleTradesmen, setHiringMultipleTradesmen] = useState("");
   const [jobSkill, setJobSkill] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [contactPhone, setContactPhone] = useState("");
@@ -111,7 +111,7 @@ const JobPost = () => {
       responsibilities,
       qualifications,
       budget,
-      hiringMultipleCandidates,
+      hiringMultipleTradesmen,
       jobSkill,
       contactInfo: { email: contactEmail, phone: contactPhone },
       businessOwnerName,
@@ -138,7 +138,7 @@ const JobPost = () => {
       setResponsibilities("");
       setQualifications("");
       setBudget("");
-      setHiringMultipleCandidates("");
+      setHiringMultipleTradesmen("");
       setJobSkill("");
       setContactEmail("");
       setContactPhone("");
@@ -178,8 +178,8 @@ const JobPost = () => {
         <InputField label="Budget" value={budget} setValue={setBudget} />
         <SelectField
           label="Hiring Multiple Candidates?"
-          value={hiringMultipleCandidates}
-          setValue={setHiringMultipleCandidates}
+          value={hiringMultipleTradesmen}
+          setValue={setHiringMultipleTradesmen}
           options={["Yes", "No"]}
         />
         <SelectField label="Job Skill" value={jobSkill} setValue={setJobSkill} options={skillsArray} />

@@ -126,38 +126,33 @@ const Jobs = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <section className="p-6">
-          <div className="flex flex-col lg:flex-row gap-4 mb-6">
-            <div className="flex items-center space-x-2">
+        <section className="jobs">
+          <div className="wrapper">
+            <div className="search-tab-wrapper">
               <input
                 type="text"
                 value={searchKeyword}
                 onChange={(e) => setSearchKeyword(e.target.value)}
                 onKeyDown={handleKeyPress}
                 placeholder="Search for jobs..."
-                className="px-4 py-2 border border-gray-300 rounded-md"
               />
-              <button
-                onClick={handleSearch}
-                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-              >
+              <button onClick={handleSearch}>
                 Find Job
               </button>
-              <FaSearch className="text-gray-600" />
+              <FaSearch />
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-6 mb-6">
-            <div className="w-full lg:w-1/4 bg-white p-4 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-4">Filter Jobs</h2>
+          <div className="wrapper">
+            <div className="filter-bar">
+              <h2>Filter Jobs</h2>
 
               {/* State Selection */}
-              <div className="mb-4">
-                <h3 className="font-medium">Select State</h3>
+              <div className="cities">
+                <h3>Select State</h3>
                 <select
                   value={state}
                   onChange={(e) => handleStateChange(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 >
                   <option value="">All States</option>
                   {Object.keys(location).map((stateName) => (
@@ -169,13 +164,12 @@ const Jobs = () => {
               </div>
 
               {/* City Selection */}
-              <div className="mb-4">
-                <h3 className="font-medium">Select City</h3>
+              <div className="cities">
+                <h3>Select City</h3>
                 <select
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   disabled={!state}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 >
                   <option value="">All Cities</option>
                   {state &&
@@ -189,11 +183,10 @@ const Jobs = () => {
 
               {/* Skill Selection */}
               <div>
-                <h3 className="font-medium">Select Skill</h3>
+                <h3>Select Skill</h3>
                 <select
                   value={skill}
                   onChange={(e) => setSkill(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 >
                   <option value="">All Skills</option>
                   {skillsArray.map((skillName, index) => (
@@ -206,47 +199,84 @@ const Jobs = () => {
             </div>
 
             {/* Job Listings */}
-            <div className="w-full lg:w-3/4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="container">
+              <div className="jobs_container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {jobs && jobs.length > 0 ? (
-                  jobs.map((element) => (
-                    <div
-                      className="bg-white p-6 rounded-lg shadow-lg"
-                      key={element._id}
-                    >
-                      {element.hiringMultipleCandidates === "Yes" ? (
-                        <p className="text-green-600 font-semibold mb-2">
-                          Hiring Multiple Candidates
+                  jobs.map((element) => {
+                    const {
+                      _id,
+                      hiringMultipleTradesmen,
+                      title,
+                      businessOwnerName,
+                      location,
+                      description,
+                      responsibilities,
+                      qualifications,
+                      budget,
+                      jobSkill,
+                      contactInfo,
+                      jobPostedOn,
+                    } = element;
+
+                    return (
+                      <div className="card" key={_id}>
+                        {/* Hiring Status */}
+                        <p className={`hiring-status ${hiringMultipleTradesmen === "Yes" ? "hiring-multiple" : "hiring"}`}>
+                          {hiringMultipleTradesmen === "Yes" ? "Hiring Multiple Candidates" : "Hiring"}
                         </p>
-                      ) : (
-                        <p className="text-red-600 font-semibold mb-2">
-                          Hiring
+
+                        {/* Job Title */}
+                        <p className="title">{title}</p>
+
+                        {/* Business Owner */}
+                        <p className="businessOwner">{businessOwnerName}</p>
+
+                        {/* Location */}
+                        <p className="location">{location}</p>
+
+                        {/* Description */}
+                        <p className="description">
+                          <span>Description: </span>{description}</p>
+
+                        {/* Responsibilities */}
+                        <p className="responsibilities">
+                          <span>Responsibilities: </span>{responsibilities}</p>
+
+                        {/* Qualifications */}
+                        <p className="qualifications">
+                        <span>Qualifications: </span>{qualifications}</p>
+
+                        {/* Budget */}
+                        <p className="budget">
+                          <span>Budget:</span> ${budget}
                         </p>
-                      )}
-                      <p className="text-lg font-semibold">{element.title}</p>
-                      <p className="text-sm text-gray-500 mb-2">
-                        {element.companyName}
-                      </p>
-                      <p className="text-sm text-gray-600 mb-2">
-                        {element.location}
-                      </p>
-                      <p className="font-medium text-gray-700 mb-2">
-                        <span className="font-semibold">Budget:</span> ${element.budget}
-                      </p>
-                      <p className="text-sm text-gray-500 mb-4">
-                        <span className="font-semibold">Posted On:</span>{" "}
-                        {element.jobPostedOn
-                          ? element.jobPostedOn.substring(0, 10)
-                          : "N/A"}
-                      </p>
-                      <Link
-                        className="block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-                        to={`/post/application/${element._id}`}
-                      >
-                        Apply Now
-                      </Link>
-                    </div>
-                  ))
+
+                        {/* Job Skill */}
+                        <p className="jobSkill">
+                          <span>Job Skill:</span> {jobSkill}
+                        </p>
+
+                        {/* Contact Info */}
+                        <p className="contact-info">
+                          <span>Contact Info:</span><br />
+                          Email: {contactInfo.email}<br />
+                          Phone: {contactInfo.phone}
+                        </p>
+
+                        {/* Posted On */}
+                        <p className="posted">
+                          <span>Posted On:</span> {jobPostedOn ? jobPostedOn.substring(0, 10) : "N/A"}
+                        </p>
+
+                        {/* Apply Button */}
+                        <div className="btn-wrapper">
+                          <Link className="btn" to={`/post/application/${_id}`}>
+                            Apply Now
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })
                 ) : (
                   <p>No jobs available at the moment.</p>
                 )}
