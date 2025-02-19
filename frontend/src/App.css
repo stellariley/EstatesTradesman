@@ -526,14 +526,14 @@ body {
   }
 }
 
-.authPage {
+.loginPage { 
   display: flex;
   min-width: 1500px;
   max-width: 1500px;
   margin: 0 auto;
   min-height: 100vh;
 }
-.authPage .container {
+.loginPage .container {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -542,61 +542,60 @@ body {
   padding: 20px 20px;
   max-width: 1500px;
 }
-.authPage .login-container {
+.loginPage .login-container {
   max-width: 620px;
 }
-.authPage .container .header {
+.loginPage .container .header {
   display: flex;
   gap: 15px;
   flex-direction: column;
 }
-.authPage .container .header h3 {
+.loginPage .container .header h3 {
   font-size: 1.6rem;
 }
-.authPage .container .header img {
+.loginPage .container .header img {
   width: 300px;
   height: 120px;
   margin: 0 auto;
 }
-.authPage .container .header {
+.loginPage .container .header {
   text-align: center;
   margin-bottom: 30px;
 }
-.authPage .container form {
+.loginPage .container form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.authPage .container form .wrapper {
+.loginPage .container form .wrapper {
   display: flex;
   gap: 20px;
 }
-.authPage .container form .inputTag {
+.loginPage .container form .inputTag {
   display: flex;
   flex-direction: column;
   gap: 10px;
   flex: 1;
 }
-.authPage .container form .inputTag div {
+.loginPage .container form .inputTag div {
   display: flex;
   align-items: center;
   border-radius: 7px;
 }
-.authPage .container form .inputTag div input,
-.authPage .container form .inputTag div select,
-.authPage .container form .inputTag div textarea {
+.loginPage .container form .inputTag div input,
+.loginPage .container form .inputTag div select,
+.loginPage .container form .inputTag div textarea {
   background: #87878778;
   padding: 8px;
   border: none;
   width: 100%;
-  /* height: 100%; */
 }
-.authPage .container form .inputTag div input:focus,
-.authPage .container form .inputTag div select:focus,
-.authPage .container form .inputTag div textarea:focus {
+.loginPage .container form .inputTag div input:focus,
+.loginPage .container form .inputTag div select:focus,
+.loginPage .container form .inputTag div textarea:focus {
   outline: none;
 }
-.authPage .container form .inputTag div svg {
+.loginPage .container form .inputTag div svg {
   width: 10%;
   font-size: 1.5rem;
   background: #7c7fd6;
@@ -604,7 +603,7 @@ body {
   padding: 8px;
   color: #fff;
 }
-.authPage .container form button {
+.loginPage .container form button {
   padding: 12px;
   text-align: center;
   border: none;
@@ -615,7 +614,7 @@ body {
   font-size: 1.2rem;
   border-radius: 7px;
 }
-.authPage .container form a {
+.loginPage .container form a {
   padding: 12px;
   text-align: center;
   border: 1px solid #7c7fd6;
@@ -626,49 +625,50 @@ body {
   text-decoration: none;
   border-radius: 7px;
 }
-.authPage .banner {
+.loginPage .banner {
   flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow-y: hidden;
 }
-.authPage .banner img {
+.loginPage .banner img {
   width: 100%;
   width: 550px;
   height: 550px;
 }
 @media (max-width: 1520px) {
-  .authPage {
+  .loginPage {
     min-width: 100%;
   }
 }
 @media (max-width: 1030px) {
-  .authPage .container {
+  .loginPage .container {
     margin: 0 auto;
   }
 }
 @media (max-width: 910px) {
-  .authPage .container form .wrapper {
+  .loginPage .container form .wrapper {
     flex-direction: column;
   }
 }
 @media (max-width: 830px) {
-  .authPage {
+  .loginPage {
     min-height: 100vh;
     height: auto;
   }
-  .authPage .container {
+  .loginPage .container {
     flex: none;
     width: 100%;
     justify-content: flex-start;
     padding: 40px 20px;
   }
-  .authPage .banner {
+  .loginPage .banner {
     flex: none;
     display: none;
   }
 }
+
 
 .jobs {
   padding: 40px 100px;
