@@ -47,8 +47,8 @@ const MyApplications = () => {
           You have not applied for any job.
         </h1>
       ) : (
-        <div className="account_components max-w-4xl mx-auto py-8 px-4">
-          <h3 className="text-2xl font-semibold mb-6 text-center">My Applications For Jobs</h3>
+        <div className="account_components">
+          <h3>My Applications For Jobs</h3>
           {user && (
             <p className="text-center text-lg mb-6">
               <strong>Welcome, {user.name}!</strong>
@@ -56,7 +56,7 @@ const MyApplications = () => {
               <span>Role: {user.role}</span>
             </p>
           )}
-          <div className="applications_container space-y-8">
+          <div className="applications_container">
             {applications.map((element) => {
               const { jobInfo, tradesmanInfo } = element;
               const { jobTitle } = jobInfo;

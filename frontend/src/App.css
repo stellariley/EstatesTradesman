@@ -1041,9 +1041,8 @@ body {
   gap: 30px;
 }
 .account_components .applications_container .card {
-  /* border-bottom: 1px solid rgb(133, 133, 133); */
   margin-bottom: 30px;
-  background: #8080803d;
+  background: #cfcfcf3d;
   padding: 25px 12px;
   border-radius: 7px;
 }
