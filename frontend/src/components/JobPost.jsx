@@ -148,9 +148,9 @@ const JobPost = () => {
 
   return (
     <div className="account_components">
-      <h3 className="text-2xl font-semibold text-center">Post A Job</h3>
+      <h3>Post A Job</h3>
 
-      <div className="space-y-4">
+      <div>
         <InputField label="Job Title" value={title} setValue={setTitle} />
         <SelectField
           label="Job Type"
@@ -185,16 +185,13 @@ const JobPost = () => {
         <SelectField label="Job Skill" value={jobSkill} setValue={setJobSkill} options={skillsArray} />
         <InputField label="Contact Email" value={contactEmail} setValue={setContactEmail} />
         <InputField label="Contact Phone" value={contactPhone} setValue={setContactPhone} />
-        
-        <div className="flex justify-center mt-6">
           <button
-            className="bg-indigo-700 text-white px-6 py-3 rounded-md hover:bg-indigo-600 disabled:bg-gray-300"
+          className="btn"
             onClick={handlePostJob}
             disabled={loading}
           >
             Post Job
           </button>
-        </div>
       </div>
     </div>
   );
@@ -202,37 +199,34 @@ const JobPost = () => {
 
 const InputField = ({ label, value, setValue }) => (
   <div>
-    <label className="block text-lg font-medium mb-2">{label}</label>
+    <label>{label}</label>
     <input
       type="text"
       value={value}
       onChange={(e) => setValue(e.target.value)}
       placeholder={label}
-      className="w-full p-3 border border-gray-300 rounded-md"
     />
   </div>
 );
 
 const TextareaField = ({ label, value, setValue }) => (
   <div>
-    <label className="block text-lg font-medium mb-2">{label}</label>
+    <label>{label}</label>
     <textarea
       value={value}
       onChange={(e) => setValue(e.target.value)}
       placeholder={label}
       rows={5}
-      className="w-full p-3 border border-gray-300 rounded-md"
     />
   </div>
 );
 
 const SelectField = ({ label, value, setValue, options, disabled = false }) => (
   <div>
-    <label className="block text-lg font-medium mb-2">{label}</label>
+    <label>{label}</label>
     <select
       value={value}
       onChange={(e) => setValue(e.target.value)}
-      className="w-full p-3 border border-gray-300 rounded-md"
       disabled={disabled}
     >
       <option value="">Select {label}</option>

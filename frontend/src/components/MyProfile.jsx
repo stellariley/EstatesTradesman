@@ -4,7 +4,7 @@ const MyProfile = () => {
   const { user } = useSelector((state) => state.user);
 
   return (
-    <div className="account_components">
+    <div className="myprofile_account_components">
       <h3>My Profile</h3>
       <div>
         <div>

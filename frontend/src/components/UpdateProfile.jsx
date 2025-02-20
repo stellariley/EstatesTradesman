@@ -93,7 +93,7 @@ const UpdateProfile = () => {
   ];
 
   return (
-    <div className="update_account_components">
+    <div className="account_components">
       <h3>Update Profile</h3>
       <div>
         <label>Full Name</label>
@@ -199,7 +199,6 @@ const UpdateProfile = () => {
           </div>
         </>
       )}
-      <div className="save_change_btn_wrapper">
         <button
           className="btn"
           onClick={handleUpdateProfile}
@@ -207,7 +206,6 @@ const UpdateProfile = () => {
         >
           {loading ? "Saving..." : "Save Changes"}
         </button>
-      </div>
     </div>
   );
 };

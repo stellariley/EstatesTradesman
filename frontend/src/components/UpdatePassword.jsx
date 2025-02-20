@@ -91,7 +91,6 @@ const UpdatePassword = () => {
           </span>
         </div>
       </div>
-      <div className="save_change_btn_wrapper">
         <button
           className="btn"
           onClick={handleUpdatePassword}
@@ -99,7 +98,6 @@ const UpdatePassword = () => {
         >
           {loading ? "Updating..." : "Update Password"}
         </button>
-      </div>
     </div>
   );
 };

@@ -10,26 +10,37 @@
   font-weight: 400;
   font-size: 20px;
 }
+
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.btn,
+
+.btn, 
 .black_btn,
 .outline_btn {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #7c7fd6;
   color: #111;
   font-weight: 500;
   border: none;
   transition: 0.3s;
-  padding: 10px 30px;
+  padding: 12px 24px;
   min-width: 170px;
-  max-width: fit-content;
+  max-width: 100%;
+  width: auto;
   border-radius: 6px;
   text-decoration: none;
+  text-align: center;
+  cursor: pointer;
 }
+
 @media (max-width: 410px) {
+
   .btn,
   .black_btn,
   .outline_btn {
@@ -40,33 +51,39 @@ input::-webkit-outer-spin-button {
     padding: 10px;
   }
 }
+
 .btn:hover {
   background-color: #111;
   color: #fff;
   transition: 0.3s;
   cursor: pointer;
 }
+
 .black_btn {
   background: #111;
   color: #fff;
 }
+
 .black_btn:hover {
   background: #fff;
   color: #111;
   transition: 0.3s;
   cursor: pointer;
 }
+
 .outline_btn {
   background: transparent;
   color: #7c7fd6;
   border: 1px solid #7c7fd6;
 }
+
 .btn:hover {
   background-color: #111;
   color: #fff;
   transition: 0.3s;
   cursor: pointer;
 }
+
 .outline_btn:hover {
   background: #7c7fd6;
   color: #111;
@@ -75,7 +92,8 @@ input::-webkit-outer-spin-button {
 }
 
 body {
-  min-height: 200vh; /* Ensure there is enough content to scroll */
+  min-height: 200vh;
+  /* Ensure there is enough content to scroll */
   margin: 0;
 }
 
@@ -194,7 +212,8 @@ body {
     font-size: 1.5rem;
   }
 
-  .link, .mobileLink {
+  .link,
+  .mobileLink {
     font-size: 1rem;
   }
 
@@ -207,6 +226,7 @@ body {
   padding: 40px 100px;
   min-height: 800px;
 }
+
 .notfound .content {
   display: flex;
   min-height: 780px;
@@ -215,40 +235,49 @@ body {
   align-items: center;
   gap: 50px;
 }
+
 .notfound .content h1 {
   font-size: 5rem;
   font-weight: 500;
 }
+
 .notfound .content p {
   font-size: 18px;
   color: #111;
 }
+
 .notfound .content .btn {
   width: fit-content;
   text-decoration: none;
 }
+
 @media (max-width: 950px) {
   .notfound .content h1 {
     font-size: 3.5rem;
   }
 }
+
 @media (max-width: 920px) {
   .notfound {
     padding: 40px 20px;
     min-height: 400px;
   }
+
   .notfound .content {
     min-height: 400px;
   }
 }
+
 @media (max-width: 560px) {
   .notfound .content h1 {
     font-size: 2.5rem;
   }
+
   .notfound .content p {
     text-align: center;
   }
 }
+
 @media (max-width: 410px) {
   .notfound .content h1 {
     font-size: 1.5rem;
@@ -295,6 +324,7 @@ body {
 .footer .section-content a:hover {
   color: #1e60a1;
 }
+
 .footer .section-quick-links {
   color: #9faab6;
   text-align: center;
@@ -323,7 +353,7 @@ body {
 }
 
 .footer .social-icons a:hover {
-  color: #1e60a1; 
+  color: #1e60a1;
 }
 
 .footer-note {
@@ -359,16 +389,19 @@ body {
   margin: 0 auto;
   gap: 50px;
 }
+
 .hero h1 {
   font-size: 3rem;
   text-transform: uppercase;
   font-weight: 700;
 }
+
 .hero h4 {
   font-size: 1.5rem;
   font-weight: 500;
   color: rgb(63, 62, 62);
 }
+
 .hero .box {
   max-width: 900px;
   text-align: center;
@@ -380,12 +413,14 @@ body {
   font-weight: 500;
   transition: 0.3s;
 }
+
 .hero .box:hover {
   transform: translateY(-10px);
   transition: 0.3s;
   background: #111;
   color: #fff;
 }
+
 @media (max-width: 1720px) {
   .hero {
     min-width: 100%;
@@ -393,10 +428,12 @@ body {
     text-align: center;
   }
 }
+
 @media (max-width: 810px) {
   .hero h1 {
     font-size: 2.2rem;
   }
+
   .hero .box {
     padding: 40px 20px;
   }
@@ -413,17 +450,20 @@ body {
   margin: 0 auto;
   gap: 50px;
 }
+
 .services h3 {
   font-size: 1.75rem;
   font-weight: 600;
   color: #7c7fd6;
   text-transform: uppercase;
 }
+
 .services .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 50px;
 }
+
 .services .grid .card {
   background: black;
   color: #fff;
@@ -434,15 +474,18 @@ body {
   border-radius: 6px;
   transition: 0.3s;
 }
+
 .services .grid .card:hover {
   background: #7c7fd6;
   color: #111;
   transition: 0.3s;
 }
+
 .services .grid .card h4 {
   font-weight: 600;
   text-transform: uppercase;
 }
+
 @media (max-width: 1720px) {
   .services {
     min-width: 100%;
@@ -460,17 +503,20 @@ body {
   gap: 50px;
   background: linear-gradient(135deg, #8385be, #0e12eb);
 }
+
 .howItWorks h3 {
   font-size: 1.75rem;
   font-weight: 600;
   color: #111;
   text-transform: uppercase;
 }
+
 .howItWorks .container {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
+
 .howItWorks .container .card {
   background: #fff;
   padding: 30px 50px;
@@ -480,12 +526,14 @@ body {
   border-radius: 6px;
   transition: 0.3s;
 }
+
 .howItWorks .container .card:hover {
   transition: 0.3s;
   transform: translateY(-10px);
   background: #111;
   color: #fff;
 }
+
 .howItWorks .container .card .icon {
   width: fit-content;
   display: flex;
@@ -496,21 +544,26 @@ body {
   align-items: center;
   transition: 0.3s;
 }
+
 .howItWorks .container .card .icon svg {
   font-size: 40px;
   color: #fff;
 }
+
 .howItWorks .container .card:hover .icon {
   background: #fff;
   transition: 0.3s;
 }
+
 .howItWorks .container .card:hover .icon svg {
   color: #111;
 }
+
 .howItWorks .container .card h4 {
   font-size: 1.3rem;
   font-weight: 500;
 }
+
 .howItWorks .container .card p {
   color: gray;
 }
@@ -520,13 +573,14 @@ body {
     padding: 50px 20px;
   }
 }
+
 @media (max-width: 600px) {
   .howItWorks .container .card {
     padding: 20px;
   }
 }
 
-.loginPage { 
+.loginPage {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -534,6 +588,7 @@ body {
   min-height: 100vh;
   background-color: #f8f8f8;
 }
+
 .loginPage .container {
   flex: 1;
   display: flex;
@@ -544,48 +599,58 @@ body {
   border-radius: 10px;
   max-width: 1500px;
 }
+
 .loginPage .login-container {
   max-width: 620px;
 }
+
 .loginPage .container .header {
   color: #7c7fd6;
   display: flex;
   gap: 15px;
   flex-direction: column;
 }
+
 .loginPage .container .header h3 {
   font-weight: 700;
   font-size: 1.6rem;
 }
+
 .loginPage .container .header img {
   width: 300px;
   height: 120px;
   margin: 0 auto;
 }
+
 .loginPage .container .header {
   text-align: center;
   margin-bottom: 30px;
 }
+
 .loginPage .container form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .loginPage .container form .wrapper {
   display: flex;
   gap: 20px;
 }
+
 .loginPage .container form .inputTag {
   display: flex;
   flex-direction: column;
   gap: 10px;
   flex: 1;
 }
+
 .loginPage .container form .inputTag div {
   display: flex;
   align-items: center;
   border-radius: 7px;
 }
+
 .loginPage .container form .inputTag div input,
 .loginPage .container form .inputTag div select,
 .loginPage .container form .inputTag div textarea {
@@ -594,11 +659,13 @@ body {
   border: none;
   width: 100%;
 }
+
 .loginPage .container form .inputTag div input:focus,
 .loginPage .container form .inputTag div select:focus,
 .loginPage .container form .inputTag div textarea:focus {
   outline: none;
 }
+
 .loginPage .container form .inputTag div svg {
   width: 10%;
   font-size: 1.5rem;
@@ -607,6 +674,7 @@ body {
   padding: 8px;
   color: #fff;
 }
+
 .loginPage .container form button {
   padding: 12px;
   text-align: center;
@@ -618,12 +686,14 @@ body {
   font-size: 1.2rem;
   border-radius: 7px;
 }
+
 .loginPage .container form button:hover {
   background-color: #131313;
   color: #fff;
   transition: 0.3s;
   cursor: pointer;
 }
+
 .loginPage .container form a {
   padding: 12px;
   text-align: center;
@@ -635,6 +705,7 @@ body {
   text-decoration: none;
   border-radius: 7px;
 }
+
 .loginPage .container form a:hover {
   border: 1px solid #7c7fd6;
   background-color: #131313;
@@ -642,6 +713,7 @@ body {
   transition: 0.3s;
   cursor: pointer;
 }
+
 .loginPage .banner {
   flex: 2;
   display: flex;
@@ -649,44 +721,51 @@ body {
   align-items: center;
   overflow-y: hidden;
 }
+
 .loginPage .banner img {
   width: 100%;
   width: 550px;
   height: 550px;
 }
+
 @media (max-width: 1520px) {
   .loginPage {
     min-width: 100%;
   }
 }
+
 @media (max-width: 1030px) {
   .loginPage .container {
     margin: 0 auto;
   }
 }
+
 @media (max-width: 910px) {
   .loginPage .container form .wrapper {
     flex-direction: column;
   }
 }
+
 @media (max-width: 830px) {
   .loginPage {
     min-height: 100vh;
     height: auto;
   }
+
   .loginPage .container {
     flex: none;
     width: 100%;
     justify-content: flex-start;
     padding: 40px 20px;
   }
+
   .loginPage .banner {
     flex: none;
     display: none;
   }
 }
 
-.registerPage { 
+.registerPage {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -694,6 +773,7 @@ body {
   min-height: 100vh;
   background-color: #f8f8f8;
 }
+
 .registerPage .container {
   flex: 1;
   display: flex;
@@ -703,49 +783,59 @@ body {
   padding: 20px 20px;
   max-width: 1500px;
 }
+
 .registerPage .register-container {
   border-radius: 10px;
   max-width: 700px;
 }
+
 .registerPage .container .header {
   color: #7c7fd6;
   display: flex;
   gap: 15px;
   flex-direction: column;
 }
+
 .registerPage .container .header h3 {
   font-weight: 700;
   font-size: 1.8rem;
 }
+
 .registerPage .container .header img {
   width: 320px;
   height: 130px;
   margin: 0 auto;
 }
+
 .registerPage .container .header {
   text-align: center;
   margin-bottom: 30px;
 }
+
 .registerPage .container form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .registerPage .container form .wrapper {
   display: flex;
   gap: 20px;
 }
+
 .registerPage .container form .inputTag {
   display: flex;
   flex-direction: column;
   gap: 10px;
   flex: 1;
 }
+
 .registerPage .container form .inputTag div {
   display: flex;
   align-items: center;
   border-radius: 7px;
 }
+
 .registerPage .container form .inputTag div input,
 .registerPage .container form .inputTag div select,
 .registerPage .container form .inputTag div textarea {
@@ -754,11 +844,13 @@ body {
   border: none;
   width: 100%;
 }
+
 .registerPage .container form .inputTag div input:focus,
 .registerPage .container form .inputTag div select:focus,
 .registerPage .container form .inputTag div textarea:focus {
   outline: none;
 }
+
 .registerPage .container form .inputTag div svg {
   width: 10%;
   font-size: 1.5rem;
@@ -767,6 +859,7 @@ body {
   padding: 10px;
   color: #fff;
 }
+
 .registerPage .container form button {
   padding: 14px;
   text-align: center;
@@ -778,12 +871,14 @@ body {
   font-size: 1.3rem;
   border-radius: 7px;
 }
+
 .registerPage .container form button:hover {
   background-color: #131313;
   color: #fff;
   transition: 0.3s;
   cursor: pointer;
 }
+
 .registerPage .container form a {
   padding: 12px;
   text-align: center;
@@ -795,6 +890,7 @@ body {
   text-decoration: none;
   border-radius: 7px;
 }
+
 .registerPage .container form a:hover {
   border: 1px solid #7c7fd6;
   background-color: #131313;
@@ -802,6 +898,7 @@ body {
   transition: 0.3s;
   cursor: pointer;
 }
+
 .registerPage .banner {
   flex: 2;
   display: flex;
@@ -809,37 +906,44 @@ body {
   align-items: center;
   overflow-y: hidden;
 }
+
 .registerPage .banner img {
   width: 100%;
   width: 600px;
   height: 600px;
 }
+
 @media (max-width: 1520px) {
   .registerPage {
     min-width: 100%;
   }
 }
+
 @media (max-width: 1030px) {
   .registerPage .container {
     margin: 0 auto;
   }
 }
+
 @media (max-width: 910px) {
   .registerPage .container form .wrapper {
     flex-direction: column;
   }
 }
+
 @media (max-width: 830px) {
   .registerPage {
     min-height: 100vh;
     height: auto;
   }
+
   .registerPage .container {
     flex: none;
     width: 100%;
     justify-content: flex-start;
     padding: 40px 20px;
   }
+
   .registerPage .banner {
     flex: none;
     display: none;
@@ -980,6 +1084,7 @@ body {
   font-size: 20px;
   color: gray;
 }
+
 .jobs .container .jobs_container .card .businessOwner,
 .jobs .container .jobs_container .card .contact-info,
 .jobs .container .jobs_container .card .budget,
@@ -1022,6 +1127,7 @@ body {
   .jobs {
     padding: 40px 20px;
   }
+
   .jobs .search-tab-wrapper {
     width: 100%;
   }
@@ -1031,9 +1137,11 @@ body {
   .jobs .wrapper .filter-bar {
     display: none;
   }
+
   .jobs .container {
     width: 100%;
   }
+
   .jobs .container .jobs_container {
     display: flex;
     flex-direction: column;
@@ -1041,11 +1149,13 @@ body {
     border-top: 1px solid gray;
     margin-top: 20px;
   }
+
   .mobile-filter {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
   }
+
   .mobile-filter select {
     padding: 4px 8px;
   }
@@ -1055,15 +1165,19 @@ body {
   .jobs .container .jobs_container .card {
     padding: 20px 8px;
   }
+
   .mobile-filter select {
     width: 100%;
   }
+
   .jobs .search-tab-wrapper input {
     padding: 12px 55px 12px 8px;
   }
+
   .jobs .search-tab-wrapper button {
     display: none;
   }
+
   .jobs .search-tab-wrapper svg {
     display: block;
   }
@@ -1073,16 +1187,19 @@ body {
   padding: 40px 100px;
   min-height: 800px;
 }
+
 .account .component_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
 }
+
 .account .component_header p {
   font-weight: 500;
   color: #111;
 }
+
 .account .component_header p:last-child span {
   color: #7c7fd6;
 }
@@ -1090,23 +1207,27 @@ body {
 .account .container {
   display: flex;
 }
+
 .account .container .sidebar {
   min-width: 252px;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
+
 .account .container .sidebar h4 {
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 24px;
   margin-bottom: 20px;
 }
+
 .account .container .sidebar .sidebar_links {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .account .container .sidebar .sidebar_links button {
   color: gray;
   text-decoration: none;
@@ -1115,18 +1236,22 @@ body {
   border: none;
   background: transparent;
 }
+
 .account .container .sidebar .sidebar_links button:hover {
   color: #7c7fd6;
   transition: 0.3s;
 }
+
 .account .container .sidebar .sidebar_links .active {
   color: #7c7fd6;
 }
+
 .account .container .banner {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }
+
 .account_components {
   display: flex;
   flex-direction: column;
@@ -1137,6 +1262,7 @@ body {
   padding: 20px;
   border-radius: 10px;
 }
+
 .account_components .view-resume {
   background: none;
   color: #0e00d4;
@@ -1146,77 +1272,89 @@ body {
   text-decoration: underline;
   border-radius: 0;
 }
+
 .account_components h3 {
   font-size: 30px;
   font-weight: 600;
   color: #7c7fd6;
   text-align: center;
 }
+
 .account_components div:first-child {
   font-size: 30px;
   font-weight: 500;
 }
+
 .account_components img {
   width: 250px;
   height: 250px;
   border-radius: 100%;
 }
+
 .account_components div {
   display: flex;
   flex-direction: column;
   gap: 10px;
   position: relative;
 }
+
 .account_components div .label-infoTag-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 .account_components div .label-infoTag-wrapper span {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
 }
+
 .account_components div input,
 .account_components div select,
 .account_components div textarea {
   background: #d6d4d4;
   border: none;
+  border-radius: 5px;
   color: #3d3b3b;
   padding: 8px 3px;
 }
+
 .account_components div input:focus,
 .account_components div select:focus,
 .account_components div textarea:focus {
   outline: none;
 }
+
 .sidebar_icon {
   display: none;
 }
-.account_components .save_change_btn_wrapper {
-  flex-direction: row;
-  justify-content: flex-end;
-}
+
 .save_change_btn_wrapper .btn {
   width: fit-content;
 }
+
 .account_components input::file-selector-button {
   width: 100%;
   padding: 7px;
 }
+
 .account_components input[type="file"] {
   background: none;
 }
+
 .eye_icon {
   position: absolute;
   bottom: 12px;
   right: 20px;
   font-size: 24px;
 }
+
 .update_password_component div input {
   padding-right: 65px;
 }
+
 .account_components .inbox_container .card {
   background: #f5f5f5;
   padding: 22px 10px;
@@ -1226,20 +1364,24 @@ body {
   font-size: 22px;
   border-radius: 8px;
 }
+
 .account_components .inbox_container .card:hover {
   background: rgba(133, 133, 124, 0.19);
 }
+
 .account_components .applications_container {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
+
 .account_components .applications_container .card {
   margin-bottom: 30px;
   background: #cfcfcf3d;
   padding: 25px 12px;
   border-radius: 7px;
 }
+
 .account_components .applications_container .card .sub-sec {
   display: flex;
   flex-direction: column;
@@ -1247,15 +1389,18 @@ body {
   font-size: 16px;
   color: gray;
 }
+
 .account_components .applications_container .card .sub-sec span {
   font-weight: 600;
   font-size: 20px;
   color: #111;
 }
+
 .account_components .applications_container .card .sub-sec textarea {
   background: transparent;
   font-size: 16px;
 }
+
 .account_components .applications_container .card .btn-wrapper {
   display: flex;
   gap: 20px;
@@ -1269,19 +1414,23 @@ body {
     min-height: 800px;
   }
 }
+
 @media (max-width: 712px) {
   .account_components h3 {
     margin-top: 27px;
   }
+
   .account .container .sidebar h4 {
     color: #fff;
   }
+
   .account .component_header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 1rem;
   }
+
   .sidebar_icon {
     display: flex;
     width: fit-content;
@@ -1290,34 +1439,41 @@ body {
     position: relative;
     bottom: -18px;
   }
+
   .move_left {
     left: 0;
     transition: 0.3s;
     background: #111;
     z-index: 2;
   }
+
   .move_right {
     left: 252px;
     transition: 0.3s;
     background: #fff;
     z-index: 2;
   }
+
   .move_right svg {
     font-size: 30px;
     color: #111;
   }
+
   .move_left svg {
     font-size: 30px;
     color: #fff;
   }
+
   .account .container {
     position: relative;
   }
+
   .account .container .sidebar {
     position: absolute;
     transition: 0.3s;
     left: -100%;
   }
+
   .account .container .showSidebar {
     left: 0;
     transition: 0.3s;
@@ -1327,19 +1483,23 @@ body {
     padding: 20px 5px;
     z-index: 2;
   }
+
   .left_arrow {
     transition: 0.3s;
     transform: rotate(180deg);
   }
+
   .right_arrow {
     transition: 0.3s;
     transform: rotate(360deg);
   }
 }
+
 @media (max-width: 512px) {
   .save_change_btn_wrapper .btn {
     width: 100%;
   }
+
   .account_components img {
     margin: 0 auto;
   }
@@ -1351,6 +1511,7 @@ body {
   margin: 0 auto;
   padding: 50px 0;
 }
+
 .chatting .container {
   max-width: 650px;
   border-radius: 6px;
@@ -1359,16 +1520,20 @@ body {
   max-height: 550px;
   position: relative;
 }
+
 .chatting .container .header {
   background: gray;
 }
+
 .chatting .container .header span {
   font-size: 22px;
   font-weight: 600;
 }
+
 .chatting .container .header p {
   padding: 20px 10px;
 }
+
 .chatting .container .messages {
   padding: 20px 10px;
   display: flex;
@@ -1376,28 +1541,33 @@ body {
   gap: 10px;
   min-height: 424px;
 }
+
 .chatting .container .messages .receiver {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-left: 50px;
 }
+
 .chatting .container .messages .receiver span {
   background: rgba(133, 133, 124, 0.19);
   padding: 7px;
   width: fit-content;
 }
+
 .chatting .container .messages .sender {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-right: 50px;
 }
+
 .chatting .container .messages .sender span {
   background: #33c75557;
   padding: 7px;
   width: fit-content;
 }
+
 .chatting .container form {
   width: 100%;
   position: relative;
@@ -1406,14 +1576,17 @@ body {
   bottom: 0;
   height: 51px;
 }
+
 .chatting .container form input {
   border: navajowhite;
   width: 100%;
   padding: 10px 54px 10px 5px;
 }
+
 .chatting .container form input:focus {
   outline: none;
 }
+
 .chatting .container form button {
   position: absolute;
   top: 8px;
@@ -1431,11 +1604,13 @@ body {
     min-width: 100%;
   }
 }
+
 @media (max-width: 670px) {
   .chatting .container {
     min-width: 100%;
   }
 }
+
 @media (max-width: 550px) {
   .chatting .container .messages .receiver {
     margin-left: 0;
@@ -1533,11 +1708,12 @@ body {
 
 .application_page .btn {
   font-size: 18px;
-    font-weight: 400;
-    min-width: fit-content;
-    max-width: fit-content;
-    padding: 10px;
-  }
+  font-weight: 400;
+  min-width: fit-content;
+  max-width: fit-content;
+  padding: 10px;
+}
+
 .btn:hover {
   background-color: #111;
   color: #fff;
@@ -1567,10 +1743,12 @@ body {
   font-size: 16px;
   color: gray;
 }
+
 .application_page .job-details section .wrapper div span:first-child {
   font-weight: 500;
   color: #000000;
 }
+
 .application_page .job-details section {
   display: flex;
   flex-direction: column;
@@ -1670,13 +1848,15 @@ button:disabled {
   background: gray;
   cursor: not-allowed;
 }
+
 button:disabled:hover {
   background: gray;
   cursor: not-allowed;
   color: #111;
 }
 
-.update_account_components { 
+/*My Profile*/
+.myprofile_account_components {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -1687,7 +1867,7 @@ button:disabled:hover {
   border-radius: 10px;
 }
 
-.update_account_components .view-resume {
+.myprofile_account_components .view-resume {
   background: none;
   color: #0e00d4;
   padding: 8px 20px;
@@ -1697,40 +1877,40 @@ button:disabled:hover {
   border-radius: 0;
 }
 
-.update_account_components h3 {
+.myprofile_account_components h3 {
   font-size: 30px;
   font-weight: 600;
   color: #7c7fd6;
   text-align: center;
 }
 
-.update_account_components div:first-child {
+.myprofile_account_components div:first-child {
   font-size: 28px;
   font-weight: 500;
 }
 
-.update_account_components img {
+.myprofile_account_components img {
   width: 230px;
   height: 230px;
   border-radius: 50%;
   border: 3px solid #7c7fd6;
 }
 
-.update_account_components div {
+.myprofile_account_components div {
   display: flex;
   flex-direction: column;
   gap: 12px;
   position: relative;
 }
 
-.update_account_components div .label-infoTag-wrapper {
+.myprofile_account_components div .label-infoTag-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.update_account_components div .label-infoTag-wrapper span {
+.myprofile_account_components div .label-infoTag-wrapper span {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1738,9 +1918,9 @@ button:disabled:hover {
   font-weight: 500;
 }
 
-.update_account_components div input,
-.update_account_components div select,
-.update_account_components div textarea {
+.myprofile_account_components div input,
+.myprofile_account_components div select,
+.myprofile_account_components div textarea {
   background: #ececec;
   border: 1px solid #c4c4c4;
   color: #333;
@@ -1748,28 +1928,16 @@ button:disabled:hover {
   border-radius: 5px;
 }
 
-.update_account_components div input:focus,
-.update_account_components div select:focus,
-.update_account_components div textarea:focus {
+.myprofile_account_components div input:focus,
+.myprofile_account_components div select:focus,
+.myprofile_account_components div textarea:focus {
   outline: 2px solid #7c7fd6;
 }
 
-.update_sidebar_icon {
+.myprofile_sidebar_icon {
   display: none;
 }
 
-.update_account_components .save_change_btn_wrapper {
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.save_change_btn_wrapper .btn {
-  font-size: 18px;
-    font-weight: 400;
-    min-width: fit-content;
-    max-width: fit-content;
-    padding: 10px;
-  }
 .btn:hover {
   background-color: #111;
   color: #fff;
@@ -1777,17 +1945,17 @@ button:disabled:hover {
   cursor: pointer;
 }
 
-.update_account_components input::file-selector-button {
+.myprofile_account_components input::file-selector-button {
   width: 100%;
   padding: 7px;
 }
 
-.update_account_components input[type="file"] {
+.myprofile_account_components input[type="file"] {
   background: none;
   background-color: #f0f0f0;
 }
 
-.update_account_components .inbox_container .card {
+.myprofile_account_components .inbox_container .card {
   background: #f0f0f0;
   padding: 24px 12px;
   text-decoration: none;
@@ -1797,24 +1965,24 @@ button:disabled:hover {
   border-radius: 10px;
 }
 
-.update_account_components .inbox_container .card:hover {
+.myprofile_account_components .inbox_container .card:hover {
   background: rgba(133, 133, 124, 0.25);
 }
 
-.update_account_components .applications_container {
+.myprofile_account_components .applications_container {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-.update_account_components .applications_container .card {
+.myprofile_account_components .applications_container .card {
   margin-bottom: 25px;
   background: #7c7fd623;
   padding: 20px 10px;
   border-radius: 8px;
 }
 
-.update_account_components .applications_container .card .sub-sec {
+.myprofile_account_components .applications_container .card .sub-sec {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1822,18 +1990,18 @@ button:disabled:hover {
   color: gray;
 }
 
-.update_account_components .applications_container .card .sub-sec span {
+.myprofile_account_components .applications_container .card .sub-sec span {
   font-weight: 600;
   font-size: 20px;
   color: #111;
 }
 
-.update_account_components .applications_container .card .sub-sec textarea {
+.myprofile_account_components .applications_container .card .sub-sec textarea {
   background: transparent;
   font-size: 16px;
 }
 
-.update_account_components .applications_container .card .btn-wrapper {
+.myprofile_account_components .applications_container .card .btn-wrapper {
   display: flex;
   gap: 18px;
   justify-content: flex-end;
@@ -1841,26 +2009,29 @@ button:disabled:hover {
 }
 
 @media (max-width: 920px) {
-  .update_account {
+  .myprofile_account {
     padding: 40px 20px;
     min-height: 750px;
   }
 }
 
 @media (max-width: 712px) {
-  .update_account_components h3 {
+  .myprofile_account_components h3 {
     margin-top: 25px;
   }
-  .update_account .container .sidebar h4 {
+
+  .myprofile_account .container .sidebar h4 {
     color: #fff;
   }
-  .update_account .component_header {
+
+  .myprofile_account .component_header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 1rem;
   }
-  .update_sidebar_icon {
+
+  .myprofile_sidebar_icon {
     display: flex;
     width: fit-content;
     padding: 5px;
@@ -1868,7 +2039,8 @@ button:disabled:hover {
     position: relative;
     bottom: -18px;
   }
-  .update_account .container {
+
+  .myprofile_account .container {
     position: relative;
   }
 }
@@ -1877,7 +2049,8 @@ button:disabled:hover {
   .save_change_btn_wrapper .btn {
     width: 100%;
   }
-  .update_account_components img {
+
+  .myprofile_account_components img {
     margin: 0 auto;
   }
 }

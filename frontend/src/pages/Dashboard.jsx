@@ -40,18 +40,18 @@ const Dashboard = () => {
 
   return (
     <>
-      <section className="flex flex-col p-6">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-semibold">Dashboard</h1>
-          <p className="text-lg">
-            Welcome! <span className="font-semibold">{user && user.name}</span>
+      <section className="account">
+        <div className="component_header">
+          <h1>Dashboard</h1>
+          <p>
+            Welcome! <span>{user && user.name}</span>
           </p>
         </div>
 
-        <div className="flex">
+        <div className="container">
           <div className={`w-64 ${show ? "block" : "hidden"} lg:block`}>
-            <ul className="space-y-4">
-              <h4 className="font-semibold text-lg">Manage Account</h4>
+            <ul className="sidebar_links">
+              <h4>Manage Account</h4>
 
               <li>
                 <button
@@ -150,15 +150,15 @@ const Dashboard = () => {
             </ul>
           </div>
 
-          <div className="flex-1 bg-white p-6 rounded-lg shadow-lg">
+          <div className="banner">
             <div
-              className={`cursor-pointer absolute top-4 right-4 z-10 text-xl lg:hidden ${
-                show ? "rotate-180" : ""
-              }`}
+              className={
+                show ? "sidebar_icon move_right" : "sidebar_icon move_left"
+              }
             >
               <LuMoveRight
                 onClick={() => setShow(!show)}
-                className="text-gray-600"
+                className={show ? "left_arrow" : "right_arrow"}
               />
             </div>
 

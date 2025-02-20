@@ -36,7 +36,7 @@ const MyJobs = () => {
       {loading ? (
         <Spinner />
       ) : myJobs && myJobs.length <= 0 ? (
-        <h1 className="text-xl font-semibold text-gray-700">You have not posted any job!</h1>
+        <h1>You have not posted any job!</h1>
       ) : (
         <div className="account_components">
           <h3>My Jobs</h3>
