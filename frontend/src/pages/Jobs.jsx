@@ -182,7 +182,7 @@ const Jobs = () => {
               </div>
 
               {/* Skill Selection */}
-              <div>
+              <div className="cities">
                 <h3>Select Skill</h3>
                 <select
                   value={skill}
@@ -200,7 +200,7 @@ const Jobs = () => {
 
             {/* Job Listings */}
             <div className="container">
-              <div className="jobs_container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              <div className="jobs_container">
                 {jobs && jobs.length > 0 ? (
                   jobs.map((element) => {
                     const {

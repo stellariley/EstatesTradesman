@@ -83,165 +83,167 @@ const PostApplication = () => {
   };
 
   return (
-    <article className="application_page">
-      <form onSubmit={handlePostApplication}>
-        <h3>Application Form</h3>
-        <div>
-          <label>Job Title</label>
-          <input
-            type="text"
-            placeholder={singleJob.title}
-            disabled
-          />
-        </div>
-        <div>
-          <label>Your Name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Your Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Phone Number</label>
-          <input
-            type="number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Address</label>
-          <input
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-        </div>
-        {user && user.role === "Tradesman" && (
-          <>
-            <div>
-              <label>Cover Letter</label>
-              <textarea
-
-                value={coverLetter}
-                onChange={(e) => setCoverLetter(e.target.value)}
-                rows={6}
-              />
-            </div>
-            <div>
-              <label>Resume</label>
-              <input
-                type="file"
-
-                onChange={resumeHandler}
-              />
-            </div>
-          </>
-        )}
-        {isAuthenticated && user.role === "Tradesman" && (
-          <div className="flex justify-end">
-            <button
-              type="submit"
-              className="btn"
-              disabled={loading}
-            >
-              {loading ? "Applying..." : "Apply"}
-            </button>
+    <div className="home">
+      <article className="application_page">
+        <form onSubmit={handlePostApplication}>
+          <h3>Application Form</h3>
+          <div>
+            <label>Job Title</label>
+            <input
+              type="text"
+              placeholder={singleJob.title}
+              disabled
+            />
           </div>
-        )}
-      </form>
+          <div>
+            <label>Your Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Your Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Phone Number</label>
+            <input
+              type="number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Address</label>
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </div>
+          {user && user.role === "Tradesman" && (
+            <>
+              <div>
+                <label>Cover Letter</label>
+                <textarea
 
-      <div className="job-details">
-        <header className="text-center">
-          <h3>{singleJob.title}</h3>
-          {singleJob.personalWebsite && (
-            <Link
-              to={singleJob.personalWebsite.url}
-              target="_blank"
-            >
-              {singleJob.personalWebsite.title}
-            </Link>
+                  value={coverLetter}
+                  onChange={(e) => setCoverLetter(e.target.value)}
+                  rows={6}
+                />
+              </div>
+              <div>
+                <label>Resume</label>
+                <input
+                  type="file"
+
+                  onChange={resumeHandler}
+                />
+              </div>
+            </>
           )}
-          <p>{singleJob.location}</p>
-          <p>${singleJob.budget}</p>
-        </header>
-        <section>
-          <div className="wrapper">
+          {isAuthenticated && user.role === "Tradesman" && (
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                className="btn"
+                disabled={loading}
+              >
+                {loading ? "Applying..." : "Apply"}
+              </button>
+            </div>
+          )}
+        </form>
+
+        <div className="job-details">
+          <header className="text-center">
+            <h3>{singleJob.title}</h3>
+            {singleJob.personalWebsite && (
+              <Link
+                to={singleJob.personalWebsite.url}
+                target="_blank"
+              >
+                {singleJob.personalWebsite.title}
+              </Link>
+            )}
+            <p>{singleJob.location}</p>
+            <p>${singleJob.budget}</p>
+          </header>
+          <section>
+            <div className="wrapper">
+              <div>
+                <IoMdCash />
+                <div>
+                  <span>Budget</span>
+                  <span> ${singleJob.budget}</span>
+                </div>
+              </div>
+              <div>
+                <FaToolbox />
+                <div>
+                  <span>Job Type: </span>
+                  <span> {singleJob.jobType}</span>
+                </div>
+              </div>
+            </div>
+
             <div>
-              <IoMdCash />
-              <div>
-                <span>Budget</span>
-                <span> ${singleJob.budget}</span>
+              <h4 className="wrapper">Location</h4>
+              <div className="location-wrapper">
+                <FaLocationDot />
+                <span>{singleJob.location}</span>
               </div>
             </div>
+
             <div>
-              <FaToolbox />
-              <div>
-                <span>Job Type: </span>
-                <span> {singleJob.jobType}</span>
-              </div>
+              <h4 className="wrapper">Full Job Description:</h4>
+              <p>{singleJob.introduction}</p>
+              {singleJob.qualifications && (
+                <div>
+                  <h5>Qualifications</h5>
+                  <ul className="inside">
+                    {qualifications.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {singleJob.responsibilities && (
+                <div>
+                  <h5>Responsibilities</h5>
+                  <ul className="inside">
+                    {responsibilities.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {singleJob.offers && (
+                <div>
+                  <h5>Offering</h5>
+                  <ul className="inside">
+                    {offering.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          </div>
+          </section>
 
-          <div>
-            <h4 className="wrapper">Location</h4>
-            <div className="location-wrapper">
-              <FaLocationDot />
-              <span>{singleJob.location}</span>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="wrapper">Full Job Description:</h4>
-            <p>{singleJob.introduction}</p>
-            {singleJob.qualifications && (
-              <div>
-                <h5>Qualifications</h5>
-                <ul className="inside">
-                  {qualifications.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {singleJob.responsibilities && (
-              <div>
-                <h5>Responsibilities</h5>
-                <ul className="inside">
-                  {responsibilities.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {singleJob.offers && (
-              <div>
-                <h5>Offering</h5>
-                <ul className="inside">
-                  {offering.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </section>
-
-        <footer>
-          <h3>Job Skill</h3>
-          <p>{singleJob.jobSkill}</p>
-        </footer>
-      </div>
-    </article>
+          <footer>
+            <h3>Job Skill</h3>
+            <p>{singleJob.jobSkill}</p>
+          </footer>
+        </div>
+      </article>
+    </div>
   );
 };
 

@@ -97,6 +97,10 @@ body {
   margin: 0;
 }
 
+.home{
+  background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
+}
+
 .navbar {
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -399,13 +403,13 @@ body {
 .hero h4 {
   font-size: 1.5rem;
   font-weight: 500;
-  color: rgb(63, 62, 62);
+  color: rgb(255, 255, 255);
 }
 
 .hero .box {
   max-width: 900px;
   text-align: center;
-  background: linear-gradient(135deg, #8385be, #0e12eb);
+  background: #ffffff;
   color: #000000;
   padding: 50px 75px;
   border-radius: 35px;
@@ -454,7 +458,7 @@ body {
 .services h3 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #7c7fd6;
+  color: #000000;
   text-transform: uppercase;
 }
 
@@ -501,13 +505,12 @@ body {
   align-items: center;
   margin: 0 auto;
   gap: 50px;
-  background: linear-gradient(135deg, #8385be, #0e12eb);
 }
 
 .howItWorks h3 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #111;
+  color: #000000;
   text-transform: uppercase;
 }
 
@@ -586,7 +589,7 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: #f8f8f8;
+  background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
 }
 
 .loginPage .container {
@@ -771,7 +774,7 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: #f8f8f8;
+  background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
 }
 
 .registerPage .container {
@@ -781,6 +784,7 @@ body {
   justify-content: center;
   background: #fff;
   padding: 20px 20px;
+  border-radius: 10px;
   max-width: 1500px;
 }
 
@@ -953,7 +957,7 @@ body {
 .jobs {
   padding: 40px 100px;
   min-height: 800px;
-  background-color: #f9f9f9;
+  background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
 }
 
 .jobs .wrapper {
@@ -966,26 +970,34 @@ body {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  color: #fafafa;
 }
-
-.jobs .wrapper .filter-bar .cities {
-  flex-direction: column;
-  gap: 7px;
-  display: flex;
+.jobs .wrapper .filter-bar .cities select {
+  background-color: #cacaca;
+  color: #000000;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 18px;
 }
-
-.jobs .wrapper .filter-bar .cities h2 {
-  font-size: 24px;
+.jobs .wrapper .filter-bar h2 {
+  border-bottom: 1px solid gray;
+  font-size: 25px;
   font-weight: 500;
   padding-bottom: 20px;
-  border-bottom: 1px solid gray;
   margin-bottom: 20px;
+  
+  color: #ffffff;
+}
+.jobs .wrapper .filter-bar .cities h3 {
+  font-size: 18px;
+  font-weight: 500;
+  padding-bottom: 20px;
+  color: #ffffff;
 }
 
-.jobs .wrapper .filter-bar .cities div {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.jobs .wrapper .filter-bar .cities select:disabled {
+  background-color: #dcdcdc;
+  color: #888;
 }
 
 .jobs .search-tab-wrapper {
@@ -1003,6 +1015,7 @@ body {
   border-radius: 7px;
   padding: 12px 140px 12px 8px;
   border: 1px solid #ccc;
+  color: #ffffff;
 }
 
 .jobs .search-tab-wrapper svg {
@@ -1051,8 +1064,8 @@ body {
 }
 
 .jobs .container .jobs_container .card .title {
-  color: #111;
-  background-color: #f1f0f0;
+  color: #ffffff;
+  background: linear-gradient(90deg, #000000, #353897, #000000);
   text-align: center;
   border-radius: 8px;
   font-size: 24px;
@@ -1080,11 +1093,7 @@ body {
   margin-bottom: 8px;
 }
 
-.jobs .container .jobs_container .card .location {
-  font-size: 20px;
-  color: gray;
-}
-
+.jobs .container .jobs_container .card .location,
 .jobs .container .jobs_container .card .businessOwner,
 .jobs .container .jobs_container .card .contact-info,
 .jobs .container .jobs_container .card .budget,
@@ -1105,12 +1114,21 @@ body {
 .jobs .container .jobs_container .card .jobSkill span,
 .jobs .container .jobs_container .card .contact-info span {
   font-weight: 600;
-  color: #111;
+  color: #000000;
 }
-
-.jobs .container .jobs_container .card:hover {
+.jobs .container .jobs_container .card:hover .budget span, 
+.jobs .container .jobs_container .card:hover .posted span,
+.jobs .container .jobs_container .card:hover .description span,
+.jobs .container .jobs_container .card:hover .responsibilities span,
+.jobs .container .jobs_container .card:hover .qualifications span,
+.jobs .container .jobs_container .card:hover .jobSkill span,
+.jobs .container .jobs_container .card:hover .contact-info span {
+  color: #afafaf;
   transition: 0.3s;
-  background: rgba(133, 133, 124, 0.19);
+}
+.jobs .container .jobs_container .card:hover { 
+  transition: 0.3s;
+  background: #000000;
 }
 
 .jobs .jobs_container .card .btn-wrapper {
@@ -1186,6 +1204,7 @@ body {
 .account {
   padding: 40px 100px;
   min-height: 800px;
+  background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
 }
 
 .account .component_header {
@@ -1194,6 +1213,11 @@ body {
   align-items: center;
   margin-bottom: 2rem;
 }
+.account .component_header h1 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #eeeded;
+}
 
 .account .component_header p {
   font-weight: 500;
@@ -1201,7 +1225,7 @@ body {
 }
 
 .account .component_header p:last-child span {
-  color: #7c7fd6;
+  color: #ffffff;
 }
 
 .account .container {
@@ -1220,6 +1244,10 @@ body {
   letter-spacing: 1px;
   font-size: 24px;
   margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(90deg, #10125c, #353897, rgb(0, 0, 0));
 }
 
 .account .container .sidebar .sidebar_links {
@@ -1228,22 +1256,31 @@ body {
   gap: 10px;
 }
 
+/* Sidebar Button Styles */
 .account .container .sidebar .sidebar_links button {
-  color: gray;
-  text-decoration: none;
-  font-weight: 300;
-  transition: 0.3s;
-  border: none;
+  color: #ececec;
+  font-weight: 500;
   background: transparent;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 17px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-
 .account .container .sidebar .sidebar_links button:hover {
-  color: #7c7fd6;
-  transition: 0.3s;
+  background-color: #ebeff8;
+  color: #4045d1;
+  border-color: #ccc;
 }
-
-.account .container .sidebar .sidebar_links .active {
-  color: #7c7fd6;
+.account .container .sidebar .sidebar_links button.active {
+  background-color: #d0d8f0;
+  color: #333;
+  border-color: #a3aeda;
 }
 
 .account .container .banner {
@@ -1477,9 +1514,9 @@ body {
   .account .container .showSidebar {
     left: 0;
     transition: 0.3s;
-    background: #111;
+    background: black;
     height: 100%;
-    width: 308px;
+    width: 100%;
     padding: 20px 5px;
     z-index: 2;
   }
@@ -1621,43 +1658,6 @@ body {
   }
 }
 
-/* .application_page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 70px 20px;
-  gap: 20px;
-}
-.application_page h1 {
-  font-size: 32px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-.application_page div {
-  min-width: 550px;
-  max-width: 550px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.application_page div input,
-.application_page div textarea {
-  background: #8080805e;
-  border: none;
-  color: #555;
-  padding: 8px 3px;
-}
-.application_page div textarea:focus {
-  outline: none;
-}
-@media (max-width: 620px) {
-  .application_page div {
-    min-width: 100%;
-  }
-} */
-
 .application_page {
   display: flex;
   gap: 40px;
@@ -1667,20 +1667,25 @@ body {
   padding: 40px;
 }
 
-.application_page form {
+.application_page form { 
   display: flex;
   flex-direction: column;
   gap: 20px;
-  flex: 1;
-  padding: 50px 0;
+  width: 100%;
+  max-width: 850px;
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .application_page form h3 {
+  margin-top: 18px;
   text-align: center;
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #5f62c9;
+  color: #7c7fd6;
 }
 
 .application_page form div {
@@ -1691,15 +1696,16 @@ body {
 
 .application_page form div label {
   font-weight: 500;
+  color: #000000;
 }
 
 .application_page form div input,
 .application_page form div textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #e9e7e7;
+  background: #d6d4d4;
+  border: none;
   border-radius: 5px;
-  font-size: 16px;
+  color: #3d3b3b;
+  padding: 8px 3px;
 }
 
 .application_page form div textarea {
@@ -1725,7 +1731,12 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 50px 0;
+  padding: 60px;
+  max-width: 1000px;
+  width: 100%;
+  background-color: rgba(17, 17, 17, 0.2);
+  align-items: center;
+  border-radius: 10px;
 }
 
 .application_page .job-details header {
@@ -1736,17 +1747,18 @@ body {
 .application_page .job-details h3 {
   font-size: 24px;
   font-weight: 600;
+  color: #000000;
 }
 
 .application_page .job-details header a,
 .application_page .job-details header p {
   font-size: 16px;
-  color: gray;
+  color: #b9b9b9;
 }
 
 .application_page .job-details section .wrapper div span:first-child {
   font-weight: 500;
-  color: #000000;
+  color: #fdfdfd;
 }
 
 .application_page .job-details section {
@@ -1775,7 +1787,7 @@ body {
 
 .application_page .job-details .wrapper div div span {
   font-size: 16px;
-  color: gray;
+  color: #b9b9b9;
 }
 
 .application_page .job-details .location-wrapper {
@@ -1786,18 +1798,19 @@ body {
 
 .application_page .job-details .location-wrapper span {
   font-size: 16px;
-  color: gray;
+  color: #b9b9b9;
 }
 
 .application_page .job-details h4 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 10px;
+  color: #fdfdfd;
 }
 
 .application_page .job-details p {
   font-size: 16px;
-  color: gray;
+  color: #b9b9b9;
 }
 
 .application_page .job-details ul {
@@ -1807,7 +1820,7 @@ body {
 
 .application_page .job-details ul li {
   font-size: 16px;
-  color: gray;
+  color: #b9b9b9;
 }
 
 .application_page .job-details footer {
@@ -1817,7 +1830,7 @@ body {
 
 .application_page .job-details footer p {
   font-size: 16px;
-  color: gray;
+  color: #b9b9b9;
 }
 
 /* Responsive Design */

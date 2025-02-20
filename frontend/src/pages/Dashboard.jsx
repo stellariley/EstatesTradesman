@@ -49,17 +49,15 @@ const Dashboard = () => {
         </div>
 
         <div className="container">
-          <div className={`w-64 ${show ? "block" : "hidden"} lg:block`}>
+          <div className={`${show ? "sidebar showSidebar" : "sidebar"}`}>
             <ul className="sidebar_links">
               <h4>Manage Account</h4>
-
               <li>
                 <button
                   onClick={() => {
                     setComponentName("My Profile");
                     setShow(!show);
                   }}
-                  className="w-full text-left p-2 rounded hover:bg-gray-200"
                 >
                   My Profile
                 </button>
@@ -70,7 +68,6 @@ const Dashboard = () => {
                     setComponentName("Update Profile");
                     setShow(!show);
                   }}
-                  className="w-full text-left p-2 rounded hover:bg-gray-200"
                 >
                   Update Profile
                 </button>
@@ -81,7 +78,6 @@ const Dashboard = () => {
                     setComponentName("Update Password");
                     setShow(!show);
                   }}
-                  className="w-full text-left p-2 rounded hover:bg-gray-200"
                 >
                   Update Password
                 </button>
@@ -95,7 +91,7 @@ const Dashboard = () => {
                         setComponentName("Job Post");
                         setShow(!show);
                       }}
-                      className="w-full text-left p-2 rounded hover:bg-gray-200"
+  
                     >
                       Post New Job
                     </button>
@@ -106,7 +102,7 @@ const Dashboard = () => {
                         setComponentName("My Jobs");
                         setShow(!show);
                       }}
-                      className="w-full text-left p-2 rounded hover:bg-gray-200"
+  
                     >
                       My Jobs
                     </button>
@@ -117,7 +113,7 @@ const Dashboard = () => {
                         setComponentName("Applications");
                         setShow(!show);
                       }}
-                      className="w-full text-left p-2 rounded hover:bg-gray-200"
+  
                     >
                       Applications
                     </button>
@@ -132,7 +128,7 @@ const Dashboard = () => {
                       setComponentName("My Applications");
                       setShow(!show);
                     }}
-                    className="w-full text-left p-2 rounded hover:bg-gray-200"
+
                   >
                     My Applications
                   </button>
@@ -142,7 +138,6 @@ const Dashboard = () => {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left p-2 rounded hover:bg-gray-200 text-red-600"
                 >
                   Logout
                 </button>
