@@ -28,6 +28,10 @@ const Login = () => {
     dispatch(login(formData));
   };
 
+  const loginHandler = ()=>{
+    window.location.href = 'http://localhost:4000/auth/google'
+  }
+
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -98,6 +102,7 @@ const Login = () => {
             <Link to={"/register"}>
               Register Now
             </Link>
+            <button onClick={loginHandler}>Login with Google</button>
         </form>
       </div>
     </section>
