@@ -7,33 +7,41 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    minLength: [3, "Name must cotain at least 3 characters."],
+    minLength: [3, "Name must contain at least 3 characters."],
     maxLength: [30, "Name cannot exceed 30 characters."],
   },
   email: {
     type: String,
     required: true,
-    validate: [validator.isEmail, "Please provide valid email."],
+    validate: [validator.isEmail, "Please provide a valid email."],
   },
   phone: {
     type: Number,
-    required: true,
+    required: function () { return !this.googleId; },
+    default: null,
   },
   address: {
     type: String,
-    required: true,
+    required: function () { return !this.googleId; },
+    default: "",
+  },
+  password: {
+    type: String,
+    required: function () { return !this.googleId; },
+    select: false,
+    default: "",
+    validate: {
+      validator: function (v) {
+        if (this.googleId) return true;
+        return v.length >= 8;
+      },
+      message: "Password must contain at least 8 characters.",
+    },
   },
   skills: {
     firstSkill: String,
     secondSkill: String,
     thirdSkill: String,
-  },
-  password: {
-    type: String,
-    required: true,
-    minLength: [8, "Password must cantain at least 8 chatacters."],
-    maxLength: [32, "Password cannot exceed 32 characters."],
-    select: false
   },
   resume: {
     public_id: String,
@@ -47,6 +55,9 @@ const userSchema = new mongoose.Schema({
     required: true,
     enum: ["Tradesman", "Business Owner"],
   },
+  googleId: {
+    type: String, 
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -54,10 +65,11 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    next();
+  if (!this.isModified("password") || !this.password) {
+    return next();
   }
   this.password = await bcrypt.hash(this.password, 10);
+  next();
 });
 
 userSchema.methods.comparePassword = async function (enteredPassword) {

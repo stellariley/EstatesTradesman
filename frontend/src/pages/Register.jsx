@@ -75,9 +75,13 @@ const Register = () => {
     dispatch(register(formData));
   };
 
-  const loginHandler = ()=>{
-    window.location.href = 'http://localhost:4000/auth/google'
-  }
+  const loginHandler = () => {
+    if (!role) {
+      toast.error("Please select a role before logging in with Google.");
+      return;
+    }
+    window.location.href = `http://localhost:4000/api/v1/user/auth/google?role=${role}`;
+  };
 
   useEffect(() => {
     if (error) {
@@ -91,177 +95,187 @@ const Register = () => {
 
   return (
     <section className="registerPage">
-  <div className="container">
-    <div className="header">
-      <h3>Create a new account</h3>
-    </div>
-    <form onSubmit={handleRegsiter}>
-      {/* Role Selection */}
-      <div className="wrapper">
-        <div className="inputTag">
-          <label>Register As</label>
-          <div>
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
-              <option value="">Select Role</option>
-              <option value="Business Owner">Register as Business Owner</option>
-              <option value="Tradesman">Register as Tradesman</option>
-            </select>
-            <FaRegUser />
-          </div>
+      <div className="container">
+        <div className="header">
+          <h3>Create a new account</h3>
         </div>
-      </div>
-
-      {/* Name and Email */}
-      <div className="wrapper">
-        <div className="inputTag">
-          <label>Name</label>
-          <div>
-            <input
-              type="text"
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <FaPencilAlt />
-          </div>
-        </div>
-        <div className="inputTag">
-          <label>Email Address</label>
-          <div>
-            <input
-              type="email"
-              placeholder="youremail@gmail.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <MdOutlineMailOutline />
-          </div>
-        </div>
-      </div>
-
-      <div className="wrapper">
-        <div className="inputTag">
-          <label>Phone Number</label>
-          <div>
-            <input
-              type="number"
-              placeholder="111-222-333"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <FaPhoneFlip />
-          </div>
-        </div>
-        <div className="inputTag">
-          <label>Address</label>
-          <div>
-            <input
-              type="text"
-              placeholder="Your Address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-            <FaAddressBook />
-          </div>
-        </div>
-      </div>
-
-      <div className="wrapper">
-        <div className="inputTag">
-          <label>Password</label>
-          <div>
-            <input
-              type="password"
-              placeholder="Your Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <RiLock2Fill />
-          </div>
-        </div>
-      </div>
-
-      {/* Tradesman Fields */}
-      {role === "Tradesman" && (
-        <>
+        <form onSubmit={handleRegsiter}>
+          {/* Role Selection */}
           <div className="wrapper">
             <div className="inputTag">
-              <label>Your First Skill</label>
+              <label>Register As</label>
               <div>
-                <select value={firstSkill} onChange={(e) => setFirstSkill(e.target.value)}>
-                  <option value="">Select Skill</option>
-                  {skillsArray.map((skill, index) => (
-                    <option key={index} value={skill}>
-                      {skill}
-                    </option>
-                  ))}
+                <select value={role} onChange={(e) => setRole(e.target.value)}>
+                  <option value="">Select Role</option>
+                  <option value="Business Owner">Register as Business Owner</option>
+                  <option value="Tradesman">Register as Tradesman</option>
                 </select>
-                <MdCategory />
-              </div>
-            </div>
-            <div className="inputTag">
-              <label>Your Second Skill</label>
-              <div>
-                <select value={secondSkill} onChange={(e) => setSecondSkill(e.target.value)}>
-                  <option value="">Select Skill</option>
-                  {skillsArray.map((skill, index) => (
-                    <option key={index} value={skill}>
-                      {skill}
-                    </option>
-                  ))}
-                </select>
-                <MdCategory />
-              </div>
-            </div>
-            <div className="inputTag">
-              <label>Your Third Skill</label>
-              <div>
-                <select value={thirdSkill} onChange={(e) => setThirdSkill(e.target.value)}>
-                  <option value="">Select Skill</option>
-                  {skillsArray.map((skill, index) => (
-                    <option key={index} value={skill}>
-                      {skill}
-                    </option>
-                  ))}
-                </select>
-                <MdCategory />
+                <FaRegUser />
               </div>
             </div>
           </div>
 
+          {/* Name and Email */}
           <div className="wrapper">
             <div className="inputTag">
-              <label>Cover Letter</label>
+              <label>Name</label>
               <div>
-                <textarea
-                  value={coverLetter}
-                  onChange={(e) => setCoverLetter(e.target.value)}
-                  rows={5}
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
+                <FaPencilAlt />
+              </div>
+            </div>
+            <div className="inputTag">
+              <label>Email Address</label>
+              <div>
+                <input
+                  type="email"
+                  placeholder="youremail@gmail.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <MdOutlineMailOutline />
               </div>
             </div>
           </div>
 
           <div className="wrapper">
             <div className="inputTag">
-              <label>Resume</label>
+              <label>Phone Number</label>
               <div>
-                <input type="file" onChange={resumeHandler} />
+                <input
+                  type="number"
+                  placeholder="111-222-333"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <FaPhoneFlip />
+              </div>
+            </div>
+            <div className="inputTag">
+              <label>Address</label>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Your Address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+                <FaAddressBook />
               </div>
             </div>
           </div>
-        </>
-      )}
 
-      <button type="submit" disabled={loading}>
-        {loading ? "Registering..." : "Register"}
-      </button>
+          <div className="wrapper">
+            <div className="inputTag">
+              <label>Password</label>
+              <div>
+                <input
+                  type="password"
+                  placeholder="Your Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <RiLock2Fill />
+              </div>
+            </div>
+          </div>
 
-      <Link to="/login">Login Now</Link>
-      <button onClick={loginHandler}>Login with Google</button>
-    </form>
-  </div>
-</section>
+          {/* Tradesman Fields */}
+          {role === "Tradesman" && (
+            <>
+              <div className="wrapper">
+                <div className="inputTag">
+                  <label>Your First Skill</label>
+                  <div>
+                    <select value={firstSkill} onChange={(e) => setFirstSkill(e.target.value)}>
+                      <option value="">Select Skill</option>
+                      {skillsArray.map((skill, index) => (
+                        <option key={index} value={skill}>
+                          {skill}
+                        </option>
+                      ))}
+                    </select>
+                    <MdCategory />
+                  </div>
+                </div>
+                <div className="inputTag">
+                  <label>Your Second Skill</label>
+                  <div>
+                    <select value={secondSkill} onChange={(e) => setSecondSkill(e.target.value)}>
+                      <option value="">Select Skill</option>
+                      {skillsArray.map((skill, index) => (
+                        <option key={index} value={skill}>
+                          {skill}
+                        </option>
+                      ))}
+                    </select>
+                    <MdCategory />
+                  </div>
+                </div>
+                <div className="inputTag">
+                  <label>Your Third Skill</label>
+                  <div>
+                    <select value={thirdSkill} onChange={(e) => setThirdSkill(e.target.value)}>
+                      <option value="">Select Skill</option>
+                      {skillsArray.map((skill, index) => (
+                        <option key={index} value={skill}>
+                          {skill}
+                        </option>
+                      ))}
+                    </select>
+                    <MdCategory />
+                  </div>
+                </div>
+              </div>
+
+              <div className="wrapper">
+                <div className="inputTag">
+                  <label>Cover Letter</label>
+                  <div>
+                    <textarea
+                      value={coverLetter}
+                      onChange={(e) => setCoverLetter(e.target.value)}
+                      rows={5}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="wrapper">
+                <div className="inputTag">
+                  <label>Resume</label>
+                  <div>
+                    <input type="file" onChange={resumeHandler} />
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          <button type="submit" disabled={loading}>
+            {loading ? "Registering..." : "Register"}
+          </button>
+
+          <Link to="/login">Login Now</Link>
+
+          {/* Google Login Button */}
+          <div
+            className="google-login-wrapper"
+            onClick={loginHandler}
+            disabled={!role}
+          >
+            <span className="google-icon"></span>
+            <span className="google-login-text">Login with Google</span>
+          </div>
+
+        </form>
+      </div>
+    </section>
   );
 };
 

@@ -28,9 +28,13 @@ const Login = () => {
     dispatch(login(formData));
   };
 
-  const loginHandler = ()=>{
-    window.location.href = 'http://localhost:4000/auth/google'
-  }
+  const loginHandler = () => {
+    if (!role) {
+      toast.error("Please select a role before logging in with Google.");
+      return;
+    }
+    window.location.href = `http://localhost:4000/api/v1/user/auth/google?role=${role}`;
+  };
 
   useEffect(() => {
     if (error) {
@@ -99,10 +103,17 @@ const Login = () => {
           >
             {loading ? "Loading..." : "Login"}
           </button>
-            <Link to={"/register"}>
-              Register Now
-            </Link>
-            <button onClick={loginHandler}>Login with Google</button>
+          <Link to={"/register"}>Register Now</Link>
+
+          {/* Google Login Button */}
+          <div
+            className="google-login-wrapper"
+            onClick={loginHandler}
+            disabled={!role}
+          >
+            <span className="google-icon"></span>
+            <span className="google-login-text">Login with Google</span>
+          </div>
         </form>
       </div>
     </section>

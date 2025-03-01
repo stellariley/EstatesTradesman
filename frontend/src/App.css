@@ -2067,3 +2067,49 @@ button:disabled:hover {
     margin: 0 auto;
   }
 }
+
+
+/* Google Login Button */
+.google-login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #5f6368;
+  border: 1px solid #cccbcb;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  outline: none;
+  padding: 12px;
+  margin-top: 25px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 7px;
+}
+
+.google-login-wrapper:hover {
+  background: #000000;
+}
+
+.google-login-wrapper:disabled {
+  background-color: #f1f3f4;
+  color: #b0b0b0;
+  cursor: not-allowed;
+  border-color: #dadce0;
+}
+
+.google-login-wrapper .google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/120px-Google_%22G%22_logo.svg.png?20230822192911') no-repeat center center;
+  background-size: contain;
+}
+
+.google-login-wrapper .google-login-text {
+  font-weight: 500;
+  color: #5f6368;
+  margin-left: 8px;
+}

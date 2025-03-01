@@ -70,7 +70,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     const user = await User.create(userData);
     sendToken(user, 201, res, "User Registered.");
   } catch (error) {
-    next(error);
+    return next(error);
   }
 });
 
@@ -111,6 +111,12 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
 });
 
 export const getUser = catchAsyncErrors(async (req, res, next) => {
+  if (!req.user) {
+    return res.status(401).json({
+      success: false,
+      message: "Not authenticated, please log in first",
+    });
+  }
   const user = req.user;
   res.status(200).json({
     success: true,
