@@ -17,7 +17,7 @@ input::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.btn, 
+.btn,
 .black_btn,
 .outline_btn {
   margin-top: 10px;
@@ -97,7 +97,7 @@ body {
   margin: 0;
 }
 
-.home{
+.home {
   background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
 }
 
@@ -972,6 +972,7 @@ body {
   gap: 50px;
   color: #fafafa;
 }
+
 .jobs .wrapper .filter-bar .cities select {
   background-color: #cacaca;
   color: #000000;
@@ -979,15 +980,17 @@ body {
   border-radius: 5px;
   font-size: 18px;
 }
+
 .jobs .wrapper .filter-bar h2 {
   border-bottom: 1px solid gray;
   font-size: 25px;
   font-weight: 500;
   padding-bottom: 20px;
   margin-bottom: 20px;
-  
+
   color: #ffffff;
 }
+
 .jobs .wrapper .filter-bar .cities h3 {
   font-size: 18px;
   font-weight: 500;
@@ -1116,7 +1119,8 @@ body {
   font-weight: 600;
   color: #000000;
 }
-.jobs .container .jobs_container .card:hover .budget span, 
+
+.jobs .container .jobs_container .card:hover .budget span,
 .jobs .container .jobs_container .card:hover .posted span,
 .jobs .container .jobs_container .card:hover .description span,
 .jobs .container .jobs_container .card:hover .responsibilities span,
@@ -1126,7 +1130,8 @@ body {
   color: #afafaf;
   transition: 0.3s;
 }
-.jobs .container .jobs_container .card:hover { 
+
+.jobs .container .jobs_container .card:hover {
   transition: 0.3s;
   background: #000000;
 }
@@ -1213,6 +1218,7 @@ body {
   align-items: center;
   margin-bottom: 2rem;
 }
+
 .account .component_header h1 {
   font-weight: bold;
   font-size: 1.5rem;
@@ -1272,11 +1278,13 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
+
 .account .container .sidebar .sidebar_links button:hover {
   background-color: #ebeff8;
   color: #4045d1;
   border-color: #ccc;
 }
+
 .account .container .sidebar .sidebar_links button.active {
   background-color: #d0d8f0;
   color: #333;
@@ -1667,7 +1675,7 @@ body {
   padding: 40px;
 }
 
-.application_page form { 
+.application_page form {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -2074,7 +2082,7 @@ button:disabled:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: #000000;
   color: #5f6368;
   border: 1px solid #cccbcb;
   width: 100%;
@@ -2090,7 +2098,7 @@ button:disabled:hover {
 }
 
 .google-login-wrapper:hover {
-  background: #000000;
+  background: linear-gradient(1deg, #dfdfdf, #ffffff);
 }
 
 .google-login-wrapper:disabled {
