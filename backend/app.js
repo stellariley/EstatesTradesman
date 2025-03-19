@@ -13,6 +13,7 @@ import passport from 'passport';
 import session from 'express-session';
 import { Strategy as googleStrategy } from 'passport-google-oauth20';
 import { User } from "./models/userSchema.js";
+import { removeUnverifiedAccounts } from "./automation/removeUnverifiedAccounts.js";
 
 const app = express();
 config({ path: "./.env" });
@@ -42,18 +43,23 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:4000/api/v1/user/auth/google/callback",
+      passReqToCallback: true,
     },
-    async (accessToken, refreshToken, profile, done) => {
+    async (req, accessToken, refreshToken, profile, done) => {
       try {
         let user = await User.findOne({ email: profile.emails[0].value });
 
         if (!user) {
+          const selectedRole = req.session.selectedRole || "Tradesman"; 
+          
           user = await User.create({
             googleId: profile.id,
             name: profile.displayName,
             email: profile.emails[0].value,
-            role: "Tradesman",
+            role: selectedRole, 
           });
+
+          delete req.session.selectedRole;
         } else if (!user.googleId) {
           user.googleId = profile.id;
           await user.save();
@@ -88,12 +94,15 @@ app.use(
 );
 
 app.get(
-  '/api/v1/user/auth/google',
-  passport.authenticate('google', {
-    scope: ['email', 'profile'],
-    prompt: "select_account"
-  })
-);
+  "/api/v1/user/auth/google", 
+  (req, res, next) => {
+  const { role } = req.query; 
+  if (role) {
+    req.session.selectedRole = role; 
+  }
+  next();
+}, passport.authenticate("google", { scope: ["email", "profile"], prompt: "select_account" }));
+
 
 app.get(
   "/api/v1/user/auth/google/callback",
@@ -110,19 +119,13 @@ app.get(
   }
 );
 
-app.get('/api/v1/user/getuser', (req, res, next) => {
-  if (!req.user) {
-    return res.status(401).json({ message: "User not authenticated", status: false });
-  }
-  res.status(200).json({ message: "success", status: true, user: req.user });
-});
-
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/job", jobRouter);
 app.use("/api/v1/application", applicationRouter);
 
-newsLetterCron()
-await connection();
+newsLetterCron();
+removeUnverifiedAccounts();
+connection();
 app.use(errorMiddleware);
 
 export default app;
