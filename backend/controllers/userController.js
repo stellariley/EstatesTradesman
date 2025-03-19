@@ -22,10 +22,10 @@ export const register = catchAsyncErrors(async (req, res, next) => {
       secondSkill,
       thirdSkill,
       coverLetter,
-      verificationMethod,
+      verificationMethod = "email",
     } = req.body;
 
-    if (!name || !email || !phone || !address || !password || !role || !verificationMethod) {
+    if (!name || !email || !phone || !address || !password || !role) {
       return next(new ErrorHandler("All fields are required.", 400));
     }
 
