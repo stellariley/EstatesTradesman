@@ -38,6 +38,32 @@ input::-webkit-outer-spin-button {
   text-align: center;
   cursor: pointer;
 }
+.or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  color: #818181;
+  width: 100%;
+  position: relative;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background-color: #949494;
+  margin: 0 10px;
+}
+
+@media (max-width: 600px) {
+  .or::before,
+  .or::after {
+    width: 30%;
+  }
+}
 
 @media (max-width: 410px) {
 
@@ -702,8 +728,7 @@ body {
 
 .loginPage .container form .register-now {
   padding: 12px;
-  text-align: center;/* 
-  border: 1px solid #7c7fd6; */
+  text-align: center;
   font-weight: 700;
   color: #363636;
   font-size: 1.2rem;
@@ -721,6 +746,8 @@ body {
 .loginPage .container form .register-now span {
   text-decoration: underline;
   color: #7c7fd6;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 
@@ -788,7 +815,7 @@ body {
   background: #fff;
   padding: 20px 20px;
   border-radius: 10px;
-  max-width: 1500px;
+  max-width: 1000px;
 }
 
 .registerPage .register-container {
@@ -868,42 +895,55 @@ body {
 }
 
 .registerPage .container form button {
-  padding: 14px;
-  text-align: center;
+  padding: 12px;
   border: none;
-  margin-top: 25px;
   font-weight: 700;
   color: #fff;
   background: #7c7fd6;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border-radius: 7px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 .registerPage .container form button:hover {
   background-color: #131313;
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
 }
 
-.registerPage .container form a {
+.registerPage .register-link {
+  color: #363636;
+  font-weight: 500;
+  font-size: 1rem;
+  display: inline;
+  text-align: center;
+}
+
+.registerPage .container form .register-now {
   padding: 12px;
   text-align: center;
-  border: 1px solid #7c7fd6;
-  margin-top: 25px;
   font-weight: 700;
-  color: #7c7fd6;
+  color: #363636;
   font-size: 1.2rem;
   text-decoration: none;
   border-radius: 7px;
+  display: block;
+  transition: 0.3s ease-in-out;
 }
 
-.registerPage .container form a:hover {
-  border: 1px solid #7c7fd6;
-  background-color: #131313;
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
+.registerPage .container form .register-now p {
+  display: inline;
+  margin: 0;
+}
+
+.registerPage .container form .register-now span {
+  text-decoration: underline;
+  color: #7c7fd6;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.registerPage .container form .register-now:hover span {
+  color: #333333;
 }
 
 .registerPage .banner {

@@ -89,9 +89,10 @@ const Register = () => {
       dispatch(clearAllUserErrors());
     }
     if (isAuthenticated) {
-      navigateTo("/");
+      toast.success(message);
+      navigateTo(`/otp-verification/${email}/${phone}`);
     }
-  }, [dispatch, error, loading, isAuthenticated, message]);
+  }, [dispatch, error, loading, isAuthenticated, message, email, phone, navigateTo]);
 
   return (
     <section className="registerPage">
@@ -261,7 +262,15 @@ const Register = () => {
             {loading ? "Registering..." : "Register"}
           </button>
 
-          <Link to="/login">Login Now</Link>
+          {/* Login Link */}
+          <div className="register-link">
+            <Link to={"/login"} className="register-now">
+            <p>Already have an account?  </p>
+              <span>Login Here</span>
+            </Link>
+          </div>
+
+          <div className="or">OR</div>
 
           {/* Google Login Button */}
           <div

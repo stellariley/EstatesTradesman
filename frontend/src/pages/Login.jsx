@@ -109,10 +109,12 @@ const Login = () => {
           {/* Register Link */}
           <div className="register-link">
             <Link to={"/register"} className="register-now">
-              <p>Do not have an account? </p>
+            <p>Do not have an account? </p>
               <span>Register Now</span>
             </Link>
           </div>
+
+          <div className="or">OR</div>
 
           {/* Google Login Button */}
           <div
