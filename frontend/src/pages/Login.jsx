@@ -96,14 +96,23 @@ const Login = () => {
               <RiLock2Fill />
             </div>
           </div>
-
+          <p className="forgot-password">
+            <Link to={"/password/forgot"}>Forgot your password?</Link>
+          </p>
           <button
             type="submit"
             disabled={loading}
           >
             {loading ? "Loading..." : "Login"}
           </button>
-          <Link to={"/register"}>Register Now</Link>
+
+          {/* Register Link */}
+          <div className="register-link">
+            <Link to={"/register"} className="register-now">
+              <p>Do not have an account? </p>
+              <span>Register Now</span>
+            </Link>
+          </div>
 
           {/* Google Login Button */}
           <div

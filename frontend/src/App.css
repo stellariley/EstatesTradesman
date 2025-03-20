@@ -590,39 +590,21 @@ body {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .loginPage .container {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background: #fff;
-  padding: 20px 20px;
+  padding: 40px;
   border-radius: 10px;
-  max-width: 1500px;
-}
-
-.loginPage .login-container {
-  max-width: 620px;
-}
-
-.loginPage .container .header {
-  color: #7c7fd6;
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
-}
-
-.loginPage .container .header h3 {
-  font-weight: 700;
-  font-size: 1.6rem;
-}
-
-.loginPage .container .header img {
-  width: 300px;
-  height: 120px;
-  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .loginPage .container .header {
@@ -630,22 +612,38 @@ body {
   margin-bottom: 30px;
 }
 
+.loginPage .container .header h3 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #7c7fd6;
+}
+
+.loginPage .container .header img {
+  width: 250px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 .loginPage .container form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  width: 100%;
+  gap: 15px;
 }
 
 .loginPage .container form .wrapper {
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .loginPage .container form .inputTag {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 10px;
-  flex: 1;
 }
 
 .loginPage .container form .inputTag div {
@@ -657,8 +655,8 @@ body {
 .loginPage .container form .inputTag div input,
 .loginPage .container form .inputTag div select,
 .loginPage .container form .inputTag div textarea {
-  background: #87878778;
-  padding: 8px;
+  background: #ececec;
+  padding: 10px;
   border: none;
   width: 100%;
 }
@@ -673,98 +671,103 @@ body {
   width: 10%;
   font-size: 1.5rem;
   background: #7c7fd6;
-  height: 46px;
-  padding: 8px;
+  height: 48px;
+  padding: 10px;
   color: #fff;
 }
 
 .loginPage .container form button {
   padding: 12px;
-  text-align: center;
   border: none;
-  margin-top: 25px;
   font-weight: 700;
   color: #fff;
   background: #7c7fd6;
   font-size: 1.2rem;
   border-radius: 7px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 .loginPage .container form button:hover {
   background-color: #131313;
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
 }
 
-.loginPage .container form a {
-  padding: 12px;
+.loginPage .register-link {
+  color: #363636;
+  font-weight: 500;
+  font-size: 1rem;
+  display: inline;
   text-align: center;
-  border: 1px solid #7c7fd6;
-  margin-top: 25px;
+}
+
+.loginPage .container form .register-now {
+  padding: 12px;
+  text-align: center;/* 
+  border: 1px solid #7c7fd6; */
   font-weight: 700;
-  color: #7c7fd6;
+  color: #363636;
   font-size: 1.2rem;
   text-decoration: none;
   border-radius: 7px;
+  display: block;
+  transition: 0.3s ease-in-out;
 }
 
-.loginPage .container form a:hover {
-  border: 1px solid #7c7fd6;
-  background-color: #131313;
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
+.loginPage .container form .register-now p {
+  display: inline;
+  margin: 0;
+}
+
+.loginPage .container form .register-now span {
+  text-decoration: underline;
+  color: #7c7fd6;
+}
+
+
+.loginPage .container form .register-now:hover span {
+  color: #333333;
+}
+
+
+.loginPage .forgot-password {
+  text-align: right !important;
+  font-size: 5px !important;
+  margin-top: 5px !important;
+}
+
+.loginPage .forgot-password a {
+  color: #636363 !important;
+  text-decoration: underline !important;
+  font-weight: 500 !important;
+  font-size: large !important;
+  border: none !important; 
+  background: none !important; 
+  padding: 0 !important; 
+  display: inline !important;
+}
+
+.loginPage .forgot-password a:hover {
+  color: #3d3d3d !important;
+  text-decoration: underline !important;
 }
 
 .loginPage .banner {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: hidden;
-}
-
-.loginPage .banner img {
-  width: 100%;
-  width: 550px;
-  height: 550px;
-}
-
-@media (max-width: 1520px) {
-  .loginPage {
-    min-width: 100%;
-  }
-}
-
-@media (max-width: 1030px) {
-  .loginPage .container {
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 910px) {
-  .loginPage .container form .wrapper {
-    flex-direction: column;
-  }
+  display: none;
 }
 
 @media (max-width: 830px) {
   .loginPage {
     min-height: 100vh;
-    height: auto;
+    padding: 20px;
   }
 
   .loginPage .container {
-    flex: none;
     width: 100%;
-    justify-content: flex-start;
-    padding: 40px 20px;
+    padding: 30px;
   }
 
-  .loginPage .banner {
-    flex: none;
-    display: none;
+  .loginPage .container form .wrapper {
+    flex-direction: column;
   }
 }
 
@@ -2091,7 +2094,7 @@ button:disabled:hover {
   box-sizing: border-box;
   outline: none;
   padding: 12px;
-  margin-top: 25px;
+  margin-top: 10px;
   font-weight: 700;
   font-size: 1.2rem;
   border-radius: 7px;
@@ -2120,4 +2123,183 @@ button:disabled:hover {
   font-weight: 500;
   color: #5f6368;
   margin-left: 8px;
+}
+
+.forgot-password-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
+}
+
+.forgot-password-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.forgot-password-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.forgot-password-container p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.forgot-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.forgot-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #7c7fd6;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.forgot-btn:hover {
+  background: #000000;
+  color: #fff;
+}
+
+/* OTP Verification Page Styles */
+.otp-verification-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.otp-container {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.otp-container h1 {
+  font-size: 44px;
+  margin-bottom: 20px;
+}
+
+.otp-container p {
+  color: gray;
+  line-height: 1.3;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.otp-input-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.otp-input {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+}
+
+.otp-input:focus {
+  border-color: #7c7fd6;
+  background: #fff;
+}
+
+.verify-button {
+  background: #7c7fd6;
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.verify-button:hover {
+  background: #8d90d8;
+}
+
+.reset-password-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(90deg, rgb(0, 0, 0), #353897, #5a5b8b);
+}
+
+.reset-password-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.reset-password-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.reset-password-container p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.reset-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.reset-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #7c7fd6;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reset-btn:hover {
+  background: #000000;
+  color: #fff;
 }
