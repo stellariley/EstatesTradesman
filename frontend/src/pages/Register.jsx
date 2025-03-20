@@ -150,7 +150,7 @@ const Register = () => {
               <div>
                 <input
                   type="number"
-                  placeholder="111-222-333"
+                  placeholder="111-222-3333"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />

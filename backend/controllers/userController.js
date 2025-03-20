@@ -36,7 +36,7 @@ export const register = catchAsyncErrors(async (req, res, next) => {
     }
 
     function validatePhoneNumber(phone) {
-      const phoneRegex = /^(\+8801[3-9]\d{8}|01[3-9]\d{8})$/;
+      const phoneRegex = /^(?:\+1\s?|1\s?)?(\d{3}[-.\s]?\d{3}[-.\s]?\d{4})$/;
       return phoneRegex.test(phone);
     }
 
@@ -204,7 +204,7 @@ export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
   const { email, otp, phone } = req.body;
 
   function validatePhoneNumber(phone) {
-    const phoneRegex = /^(\+8801[3-9]\d{8}|01[3-9]\d{8})$/;
+    const phoneRegex = /^(?:\+1\s?|1\s?)?(\d{3}[-.\s]?\d{3}[-.\s]?\d{4})$/;
     return phoneRegex.test(phone);
   }
 
@@ -215,26 +215,18 @@ export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
   try {
     const userAllEntries = await User.find({
       $or: [
-        {
-          email,
-          accountVerified: false,
-        },
-        {
-          phone,
-          accountVerified: false,
-        },
+        { email, accountVerified: false },
+        { phone, accountVerified: false },
       ],
     }).sort({ createdAt: -1 });
 
-    if (!userAllEntries) {
+    if (!userAllEntries.length) {
       return next(new ErrorHandler("User not found.", 404));
     }
 
-    let user;
+    let user = userAllEntries[0];
 
     if (userAllEntries.length > 1) {
-      user = userAllEntries[0];
-
       await User.deleteMany({
         _id: { $ne: user._id },
         $or: [
@@ -242,22 +234,18 @@ export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
           { email, accountVerified: false },
         ],
       });
-    } else {
-      user = userAllEntries[0];
     }
+
+    console.log("User found:", user);
+    console.log("Received OTP:", otp);
+    console.log("Stored OTP:", user.verificationCode);
+    console.log("OTP Expiry:", user.verificationCodeExpire);
 
     if (user.verificationCode !== Number(otp)) {
       return next(new ErrorHandler("Invalid OTP.", 400));
     }
 
-    const currentTime = Date.now();
-
-    const verificationCodeExpire = new Date(
-      user.verificationCodeExpire
-    ).getTime();
-    console.log(currentTime);
-    console.log(verificationCodeExpire);
-    if (currentTime > verificationCodeExpire) {
+    if (Date.now() > new Date(user.verificationCodeExpire).getTime()) {
       return next(new ErrorHandler("OTP Expired.", 400));
     }
 
@@ -266,8 +254,9 @@ export const verifyOTP = catchAsyncErrors(async (req, res, next) => {
     user.verificationCodeExpire = null;
     await user.save({ validateModifiedOnly: true });
 
-    sendToken(user, 200, "Account Verified.", res);
+    sendToken(user, 200, res);
   } catch (error) {
+    console.error("Error in verifyOTP:", error);
     return next(new ErrorHandler("Internal Server Error.", 500));
   }
 });
@@ -320,7 +309,7 @@ export const getUser = catchAsyncErrors(async (req, res, next) => {
     success: true,
     user,
   });
-}); 
+});
 
 export const updateProfile = catchAsyncErrors(async (req, res, next) => {
   const newUserData = {
