@@ -47,7 +47,7 @@ export const updateProfile = (data) => async (dispatch) => {
   dispatch(updateProfileSlice.actions.updateProfileRequest());
   try {
     await axios.put(
-      "http://localhost:4000/api/v1/user/update/profile",
+      `${import.meta.env.VITE_API_BASE_URL}/api/v1/user/update/profile`,
       data,
       {
         withCredentials: true,
@@ -68,7 +68,7 @@ export const updatePassword = (data) => async (dispatch) => {
   dispatch(updateProfileSlice.actions.updatePasswordRequest());
   try {
     await axios.put(
-      "http://localhost:4000/api/v1/user/update/password",
+      `${import.meta.env.VITE_API_BASE_URL}/api/v1/user/update/password`,
       data,
       {
         withCredentials: true,

@@ -35,7 +35,7 @@ const OtpVerification = () => {
       phone,
     };
     await axios
-      .post("http://localhost:4000/api/v1/user/otp-verification", data, {
+      .post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/user/otp-verification`, data, {
         withCredentials: true,
         headers: { "Content-Type": "application/json" },
       })

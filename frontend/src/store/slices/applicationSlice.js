@@ -82,7 +82,7 @@ export const fetchBusinessOwnerApplications = () => async (dispatch) => {
   dispatch(applicationSlice.actions.requestForAllApplications());
   try {
     const { data } = await axios.get(
-      `http://localhost:4000/api/v1/application/businessowner/getall`,
+      `${import.meta.env.VITE_API_BASE_URL}/api/v1/application/businessowner/getall`,
       { withCredentials: true }
     );
     dispatch(applicationSlice.actions.successForAllApplications(data.applications));
@@ -100,7 +100,7 @@ export const fetchTradesmanApplications = () => async (dispatch) => {
   dispatch(applicationSlice.actions.requestForMyApplications());
   try {
     const { data } = await axios.get(
-      `http://localhost:4000/api/v1/application/tradesman/getall`,
+      `${import.meta.env.VITE_API_BASE_URL}/api/v1/application/tradesman/getall`,
       { withCredentials: true }
     );
     dispatch(applicationSlice.actions.successForMyApplications(data.applications));
@@ -118,7 +118,7 @@ export const postApplication = (data, jobId) => async (dispatch) => {
   dispatch(applicationSlice.actions.requestForPostApplication());
   try {
     const { data: responseData } = await axios.post(
-      `http://localhost:4000/api/v1/application/post/${jobId}`,
+      `${import.meta.env.VITE_API_BASE_URL}/api/v1/application/post/${jobId}`,
       data,
       {
         withCredentials: true,
@@ -140,7 +140,7 @@ export const deleteApplication = (id) => async (dispatch) => {
   dispatch(applicationSlice.actions.requestForDeleteApplication());
   try {
     const { data } = await axios.delete(
-      `http://localhost:4000/api/v1/application/delete/${id}`,
+      `${import.meta.env.VITE_API_BASE_URL}/api/v1/application/delete/${id}`,
       { withCredentials: true }
     );
     dispatch(applicationSlice.actions.successForDeleteApplication(data.message));

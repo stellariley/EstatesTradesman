@@ -80,7 +80,7 @@ const Register = () => {
       toast.error("Please select a role before logging in with Google.");
       return;
     }
-    window.location.href = `http://localhost:4000/api/v1/user/auth/google?role=${role}`;
+    window.location.href = `${import.meta.env.VITE_API_BASE_URL}/api/v1/user/auth/google?role=${role}`;
   };
 
   useEffect(() => {
