@@ -42,7 +42,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:4000/api/v1/user/auth/google/callback",
+      callbackURL: `${import.meta.env.VITE_API_BASE_URL}/api/v1/user/auth/google/callback`,
       passReqToCallback: true,
     },
     async (req, accessToken, refreshToken, profile, done) => {
