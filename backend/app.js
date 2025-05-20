@@ -42,7 +42,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `${process.env.VITE_API_BASE_URL}/api/v1/user/auth/google/callback`,
+      callbackURL: `${import.meta.env.VITE_API_BASE_URL}/api/v1/user/auth/google/callback`,
       passReqToCallback: true,
     },
     async (req, accessToken, refreshToken, profile, done) => {
@@ -106,7 +106,7 @@ app.get(
 
 app.get(
   "/api/v1/user/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: `process.env.FRONTEND_URL/login` }),
+  passport.authenticate("google", { failureRedirect: "http://localhost:5173/login" }),
   async (req, res) => {
     const token = req.user.getJWTToken();
     res.cookie("token", token, {
@@ -115,7 +115,7 @@ app.get(
       sameSite: "strict",
       expires: new Date(Date.now() + process.env.JWT_EXPIRE * 24 * 60 * 60 * 1000),
     });
-    res.redirect(`${process.env.FRONTEND_URL}/`);
+    res.redirect("http://localhost:5173/");
   }
 );
 
