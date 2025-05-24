@@ -78,7 +78,7 @@ export const fetchJobs = (state, city, skill, searchKeyword = "", page = 1) => a
     if (skill && skill !== "All") queryParams.append("skill", skill);
     queryParams.append("page", page);
 
-    const link = `${import.meta.env.VITE_API_BASE_URL}/api/v1/job/getall?${queryParams.toString()}`;
+    const link = `http://localhost:4000/api/v1/job/getall?${queryParams.toString()}`;
 
     console.log("API Request URL:", link);
 
@@ -104,7 +104,7 @@ export const fetchJobs = (state, city, skill, searchKeyword = "", page = 1) => a
 export const fetchSingleJob = (jobId) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/job/get/${jobId}`, { withCredentials: true });
+    const response = await axios.get(`http://localhost:4000/api/v1/job/get/${jobId}`, { withCredentials: true });
     dispatch(jobSlice.actions.successForSingleJob(response.data.job));
     dispatch(jobSlice.actions.clearAllErrors());
   } catch (error) {
@@ -119,7 +119,7 @@ export const setPage = (page) => (dispatch) => {
 export const postJob = (data) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
-    const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/job/post`, data, {
+    const response = await axios.post(`http://localhost:4000/api/v1/job/post`, data, {
       withCredentials: true,
       headers: { "Content-Type": "application/json" },
     });
@@ -133,7 +133,7 @@ export const postJob = (data) => async (dispatch) => {
 export const getMyJobs = () => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/job/getmyjobs`, { withCredentials: true });
+    const response = await axios.get(`http://localhost:4000/api/v1/job/getmyjobs`, { withCredentials: true });
     dispatch(jobSlice.actions.successForMyJobs(response.data.myJobs));
     dispatch(jobSlice.actions.clearAllErrors());
   } catch (error) {
@@ -144,7 +144,7 @@ export const getMyJobs = () => async (dispatch) => {
 export const deleteJob = (id) => async (dispatch) => {
   dispatch(jobSlice.actions.request());
   try {
-    const response = await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/v1/job/delete/${id}`, { withCredentials: true });
+    const response = await axios.delete(`http://localhost:4000/api/v1/job/delete/${id}`, { withCredentials: true });
     dispatch(jobSlice.actions.successForDeleteJob(response.data.message));
     dispatch(jobSlice.actions.clearAllErrors());
   } catch (error) {
